@@ -120,8 +120,8 @@ export function LandingHero() {
             </Title>
 
             <Text className={classes.description} mt={30}>
-              Seamlessly archive live streams and vods. Each archive includes a
-              chat replay and rendered chat.
+            Nahtlose Archivierung von Livestreams und Videoclips. 
+            Jedes Archiv enthält eine Chat-Wiederholung und einen gerenderten Chat.
             </Text>
 
             <div className={classes.landingButtons}>
