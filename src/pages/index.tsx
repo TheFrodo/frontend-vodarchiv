@@ -55,7 +55,7 @@ export default function Home() {
       )}
       <div className={classes.recentlyArchivedSection}>
         <Center>
-          <Title className={classes.title}>Recently Archived</Title>
+          <Title className={classes.title}>Kürzlich archiviert</Title>
         </Center>
         <Center>
           <LandingRecentlyArchived />

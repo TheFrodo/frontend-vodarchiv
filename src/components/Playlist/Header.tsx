@@ -49,7 +49,7 @@ const PlaylistHeader = ({ playlist, handleOpen, handleDeleteOpen }: any) => {
             </Menu.Target>
 
             <Menu.Dropdown>
-              <Menu.Label>Settings</Menu.Label>
+              <Menu.Label>Einstellungen</Menu.Label>
               <Menu.Item onClick={() => handleOpen()}>Edit</Menu.Item>
               <Menu.Item onClick={() => handleDeleteOpen()} color="red">
                 Delete

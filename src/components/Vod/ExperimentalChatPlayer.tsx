@@ -65,7 +65,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         const data = await axios.get(
           `${publicRuntimeConfig.API_URL}/api/v1/vod/${vod.id}/chat/emotes`
         );
-        console.log(`Loaded ${data.data.emotes.length} emotes`);
+        console.log(`Es wurden ${data.data.emotes.length} emotes geladen`);
         data.data.emotes.forEach((emote: GanymedeEmote) => {
           if (emote.name == null || emote.name == "") {
             // If Twitch emote, see the emote ID as the key
@@ -130,9 +130,9 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         setReady(true);
         internalReady = true;
 
-        createCustomComment("Chat player ready.");
+        createCustomComment("Chat-Player bereit.");
         createCustomComment(
-          `Fetched ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ${emoteMap.size.toLocaleString()} emotes.`
+          `Es wurden ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, und ${emoteMap.size.toLocaleString()} emotes geladen.`
         );
       });
     });
@@ -369,7 +369,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "Ganymede",
+        display_name: "Olaf der Weidengeist",
       },
       message: {
         body: message,

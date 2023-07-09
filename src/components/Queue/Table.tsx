@@ -107,7 +107,7 @@ const QueueTable = () => {
     return false;
   };
 
-  if (error) return <div>Failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
@@ -139,14 +139,14 @@ const QueueTable = () => {
                 )}
                 {value.processing && !checkFailed(value) && !value.on_hold && (
                   <div>
-                    <Tooltip label="Processing">
+                    <Tooltip label="In Verarbeitung">
                       <Loader mt={2} color="green" size="sm" />
                     </Tooltip>
                   </div>
                 )}
                 {value.processing && !checkFailed(value) && value.on_hold && (
                   <div>
-                    <Tooltip label="On Hold">
+                    <Tooltip label="In der Warteschleife">
                       <ThemeIcon variant="outline" color="orange">
                         <IconPlayerPause />
                       </ThemeIcon>
@@ -159,21 +159,21 @@ const QueueTable = () => {
 
           {
             accessor: "live_archive",
-            title: "Live Archive",
+            title: "Live-Archiv",
             render: ({ live_archive }) => (
               <Text>{live_archive ? "true" : "false"}</Text>
             ),
           },
           {
             accessor: "created_at",
-            title: "Created At",
+            title: "Erstellt am",
             render: ({ created_at }) => (
               <Text>{new Date(created_at).toLocaleString()}</Text>
             ),
           },
           {
             accessor: "actions",
-            title: "Actions",
+            title: "Aktionen",
             render: ({ id, live_archive }) => (
               <div
                 style={{

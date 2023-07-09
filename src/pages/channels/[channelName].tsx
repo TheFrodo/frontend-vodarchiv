@@ -66,7 +66,7 @@ const ChannelPage = (props: any) => {
     { value: "clip", label: "Clip" },
   ];
 
-  useDocumentTitle(`${props.channel.display_name} - Ganymede`);
+  useDocumentTitle(`${props.channel.display_name} - VodArchiv.net`);
 
   const queryClient = useQueryClient();
 
@@ -96,7 +96,7 @@ const ChannelPage = (props: any) => {
     setPage(1);
   };
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
 
   return (
     <div>

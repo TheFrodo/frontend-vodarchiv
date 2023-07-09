@@ -101,7 +101,7 @@ const QueueHeader = ({ queue }: Object) => {
                 title="Streamed At"
                 className={classes.queueHeaderHoverText}
               >
-                {dayjs(queue.edges.vod.streamed_at).format("YYYY/MM/DD")}
+                {dayjs(queue.edges.vod.streamed_at).format("DD.MM.YYYY")}
               </span>
             </div>
           </div>

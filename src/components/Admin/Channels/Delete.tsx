@@ -24,8 +24,8 @@ const AdminChannelsDelete = ({ handleClose, channel }) => {
           queryClient.invalidateQueries(["admin-channels"]);
           setLoading(false);
           showNotification({
-            title: "Channel Deleted",
-            message: "Channel has been deleted successfully",
+            title: "Kanal gelöscht",
+            message: "Der Kanal wurde erfolgreich gelöscht!",
           });
           handleClose();
         })
@@ -38,17 +38,17 @@ const AdminChannelsDelete = ({ handleClose, channel }) => {
   return (
     <div style={{ marginBottom: "2rem" }}>
       <Text weight={600} size="lg">
-        Are you sure you want to delete the following channel?
+        Bist du dir sicher, dass du den folgenden Kanal löschen möchtest?
       </Text>
       <div>
-        Channel ID: <Code>{channel.id}</Code>
+        Kanal ID: <Code>{channel.id}</Code>
       </div>
       <div>
-        Channel Name: <Code>{channel.name}</Code>
+        Kanal Name: <Code>{channel.name}</Code>
       </div>
       <div>
         <Text mt={5} size="xs">
-          This action does not delete any files.
+          Diese Aktion löscht keine Dateien, sondern lediglich nur den Kanal!
         </Text>
       </div>
       <div style={{ float: "right" }}>
@@ -57,7 +57,7 @@ const AdminChannelsDelete = ({ handleClose, channel }) => {
           color="red"
           loading={loading}
         >
-          Delete
+          Löschen
         </Button>
       </div>
     </div>

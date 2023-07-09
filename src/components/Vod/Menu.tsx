@@ -74,8 +74,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["playback-data"]);
         showNotification({
-          title: "Marked as Watched",
-          message: "VOD has been successfully marked as watched",
+          title: "Als gesehen markiert",
+          message: "VOD wurde erfolgreich als angesehen markiert",
         });
       });
     },
@@ -94,8 +94,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["vod", vod.id]);
         showNotification({
-          title: "Video Updated",
-          message: `Video has been ${lock ? "locked" : "unlocked"}`,
+          title: "Video aktualisiert",
+          message: `Das Video wurde ${lock ? "gesperrt" : "entsperrt"}`,
         });
         if (lock == true) {
           isLocked.current = true;
@@ -120,8 +120,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["playback-data"]);
         showNotification({
-          title: "Marked as Unwatched",
-          message: "VOD has been successfully marked as unwatched",
+          title: "Als ungesehen markiert",
+          message: "VOD wurde erfolgreich als ungesehen markiert",
         });
       });
     },
@@ -170,27 +170,27 @@ export const VodMenu = ({ vod, style }: any) => {
             onClick={() => markAsWatched.mutate()}
             icon={<IconHourglassHigh size={14} />}
           >
-            Mark as Watched
+            Als gesehen markieren
           </Menu.Item>
           <Menu.Item
             onClick={() => markAsUnWatched.mutate()}
             icon={<IconHourglassEmpty size={14} />}
           >
-            Mark as Unwatched
+            Als nicht angesehen markieren
           </Menu.Item>
           {isLocked.current ? (
             <Menu.Item
               onClick={() => lockVod.mutate(false)}
               icon={<IconLockOpen size={14} />}
             >
-              Unlock
+              Entsperren
             </Menu.Item>
           ) : (
             <Menu.Item
               onClick={() => lockVod.mutate(true)}
               icon={<IconLock size={14} />}
             >
-              Lock
+              Sperren
             </Menu.Item>
           )}
           {useJsxAuth({
@@ -204,7 +204,7 @@ export const VodMenu = ({ vod, style }: any) => {
               }}
               icon={<IconTrashX size={14} />}
             >
-              Delete
+              Löschen
             </Menu.Item>
           )}
         </Menu.Dropdown>
@@ -220,14 +220,14 @@ export const VodMenu = ({ vod, style }: any) => {
         opened={infoModalOpened}
         onClose={() => setInfoModalOpended(false)}
         size="xl"
-        title="VOD Information"
+        title="VOD Informationen"
       >
         <VodInfoModalContent vod={vod} />
       </Modal>
       <Modal
         opened={deletedOpened}
         onClose={() => setDeletedOpened(false)}
-        title="Delete Video"
+        title="Video Löschen"
       >
         <AdminVodDelete handleClose={closeDeleteModalCallback} vod={vod} />
       </Modal>

@@ -33,7 +33,7 @@ export function RegisterForm(props: PaperProps) {
     validate: {
       password: (val) =>
         val.length <= 7
-          ? "Password should include at least 8 characters"
+          ? "Das Passwort sollte mindestens 8 Zeichen enthalten"
           : null,
     },
   });
@@ -59,7 +59,7 @@ export function RegisterForm(props: PaperProps) {
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" weight={500}>
-        Welcome to Ganymede, sign up below
+        Willkommen bei VodArchiv.net, bitte melde dich an
       </Text>
 
       <div style={{ marginBottom: "0.5rem" }}></div>
@@ -87,7 +87,7 @@ export function RegisterForm(props: PaperProps) {
             }
             error={
               form.errors.password &&
-              "Password should include at least 8 characters"
+              "Das Passwort sollte mindestens 8 Zeichen enthalten"
             }
           />
         </Stack>

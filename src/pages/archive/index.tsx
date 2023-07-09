@@ -66,7 +66,7 @@ const ArchivePage = () => {
   );
   const [channelData, setChannelData] = useState([]);
   const [channelId, setChannelID] = useState("");
-  useDocumentTitle("Archive - Ganymede");
+  useDocumentTitle("Archive - VodArchiv.net");
 
   const qualityOptions = [
     { label: "Best", value: "best" },
@@ -225,7 +225,7 @@ const ArchivePage = () => {
                 </Center>
                 <Center mb={10}>
                   <Text>
-                    Enter a video ID or select a channel to archive a livestream
+                    Gebe eine Video-ID ein oder wähle einen Kanal, um einen Livestream zu archivieren.
                   </Text>
                 </Center>
                 <TextInput

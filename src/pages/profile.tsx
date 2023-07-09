@@ -46,7 +46,7 @@ const ProfilePage = () => {
 
   const { classes, theme } = useStyles();
 
-  useDocumentTitle("Profile - Ganymede");
+  useDocumentTitle("Profile - VodArchiv.net");
 
   useEffect(() => {
     setUseNewChatPlayer(user.settings.useNewChatPlayer);

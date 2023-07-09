@@ -183,7 +183,7 @@ const VideoCard = ({
               withPlaceholder
               placeholder={
                 <Text style={{ height: "5rem !important" }} align="center">
-                  This image could not be loaded
+                  Das Bild konnte nicht geladen werden!
                 </Text>
               }
             />
@@ -240,13 +240,13 @@ const VideoCard = ({
       <Group position="apart" className={classes.footer}>
         <Center>
           <Tooltip
-            label={`Streamed on ${new Date(
+            label={`Gestreamt am ${new Date(
               video.streamed_at
             ).toLocaleString()}`}
           >
             <Badge color={theme.colorScheme === "dark" ? "gray" : "dark"}>
               <Text>
-                {dayjs(video.streamed_at).format("YYYY/MM/DD")}{" "}
+                {dayjs(video.streamed_at).format("DD.MM.YYYY")}{" "}
                 {user.settings.moreUIDetails && (
                   <span>{dayjs(video.streamed_at).format("LT")}</span>
                 )}

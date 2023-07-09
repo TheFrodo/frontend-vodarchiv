@@ -39,7 +39,7 @@ const LandingRecentlyArchived = () => {
       }),
   });
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
