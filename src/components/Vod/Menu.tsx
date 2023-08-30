@@ -18,6 +18,7 @@ import {
   IconTrashX,
   IconLock,
   IconLockOpen,
+  IconShare,
 } from "@tabler/icons";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
@@ -26,6 +27,7 @@ import { VodInfoModalContent } from "./InfoModalContent";
 import { VodPlaylistModalContent } from "./PlaylistModalContent";
 import { ROLES, useJsxAuth } from "../../hooks/useJsxAuth";
 import AdminVodDelete from "../Admin/Vods/Delete";
+import vodDataBus from "./EventBus";
 
 const useStyles = createStyles((theme) => ({
   action: {
@@ -74,8 +76,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["playback-data"]);
         showNotification({
-          title: "Als gesehen markiert",
-          message: "VOD wurde erfolgreich als angesehen markiert",
+          title: "Marked as Watched",
+          message: "VOD has been successfully marked as watched",
         });
       });
     },
@@ -94,8 +96,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["vod", vod.id]);
         showNotification({
-          title: "Video aktualisiert",
-          message: `Das Video wurde ${lock ? "gesperrt" : "entsperrt"}`,
+          title: "Video Updated",
+          message: `Video has been ${lock ? "locked" : "unlocked"}`,
         });
         if (lock == true) {
           isLocked.current = true;
@@ -120,8 +122,8 @@ export const VodMenu = ({ vod, style }: any) => {
       ).then(() => {
         queryClient.invalidateQueries(["playback-data"]);
         showNotification({
-          title: "Als ungesehen markiert",
-          message: "VOD wurde erfolgreich als ungesehen markiert",
+          title: "Marked as Unwatched",
+          message: "VOD has been successfully marked as unwatched",
         });
       });
     },
@@ -134,6 +136,46 @@ export const VodMenu = ({ vod, style }: any) => {
   const closeDeleteModalCallback = () => {
     setDeletedOpened(false);
   };
+
+  const shareVideo = () => {
+    let shareUrl: string = "";
+    const url = window.location.origin;
+
+    // check if we are on a vod page
+    if (window.location.pathname.includes("/vods/") && window.location.pathname.includes(vod.id)) {
+      // get the current time
+      const { time } = vodDataBus.getData();
+      const roundedTime = Math.ceil(time);
+      // create the url
+      shareUrl = `${url}/vods/${vod.id}?t=${roundedTime}`;
+    } else {
+      // create the url
+      shareUrl = `${url}/vods/${vod.id}`;
+    }
+
+    // copy the url to the clipboard
+    try {
+      navigator.clipboard.writeText(shareUrl);
+
+      // show a notification
+      showNotification({
+        title: "Copied to Clipboard",
+        message: "The video url has been copied to your clipboard",
+      });
+
+    } catch (err) {
+      console.error(err);
+      // show a notification
+      showNotification({
+        title: "Error",
+        message: "The clipboard API requires HTTPS, falling back to a prompt",
+        color: "red",
+      });
+
+      // fallback to a prompt
+      prompt("Copy to clipboard: Ctrl+C, Enter", shareUrl);
+    }
+  }
 
   return (
     <div>
@@ -170,43 +212,49 @@ export const VodMenu = ({ vod, style }: any) => {
             onClick={() => markAsWatched.mutate()}
             icon={<IconHourglassHigh size={14} />}
           >
-            Als gesehen markieren
+            Mark as Watched
           </Menu.Item>
           <Menu.Item
             onClick={() => markAsUnWatched.mutate()}
             icon={<IconHourglassEmpty size={14} />}
           >
-            Als nicht angesehen markieren
+            Mark as Unwatched
           </Menu.Item>
           {isLocked.current ? (
             <Menu.Item
               onClick={() => lockVod.mutate(false)}
               icon={<IconLockOpen size={14} />}
             >
-              Entsperren
+              Unlock
             </Menu.Item>
           ) : (
             <Menu.Item
               onClick={() => lockVod.mutate(true)}
               icon={<IconLock size={14} />}
             >
-              Sperren
+              Lock
             </Menu.Item>
           )}
           {useJsxAuth({
             loggedIn: true,
             roles: [ROLES.ADMIN],
           }) && (
-            <Menu.Item
-              color="red"
-              onClick={() => {
-                openDeleteModal();
-              }}
-              icon={<IconTrashX size={14} />}
-            >
-              Löschen
-            </Menu.Item>
-          )}
+              <Menu.Item
+                color="red"
+                onClick={() => {
+                  openDeleteModal();
+                }}
+                icon={<IconTrashX size={14} />}
+              >
+                Delete
+              </Menu.Item>
+            )}
+          <Menu.Item
+            onClick={() => shareVideo()}
+            icon={<IconShare size={14} />}
+          >
+            Share
+          </Menu.Item>
         </Menu.Dropdown>
       </Menu>
       <Modal
@@ -220,14 +268,14 @@ export const VodMenu = ({ vod, style }: any) => {
         opened={infoModalOpened}
         onClose={() => setInfoModalOpended(false)}
         size="xl"
-        title="VOD Informationen"
+        title="VOD Information"
       >
         <VodInfoModalContent vod={vod} />
       </Modal>
       <Modal
         opened={deletedOpened}
         onClose={() => setDeletedOpened(false)}
-        title="Video Löschen"
+        title="Delete Video"
       >
         <AdminVodDelete handleClose={closeDeleteModalCallback} vod={vod} />
       </Modal>

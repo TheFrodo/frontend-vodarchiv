@@ -26,6 +26,8 @@ import {
 } from "@vidstack/react/icons";
 import ReactDOM from "react-dom";
 import TheaterModeIcon from "./TheaterModeIcon";
+import { escapeURL } from "../../util/util";
+import { useSearchParams } from 'next/navigation'
 
 const useStyles = createStyles((theme) => ({
   playerContainer: {
@@ -47,10 +49,12 @@ const NewVideoPlayer = ({ vod }: any) => {
   const player = useRef<MediaPlayerElement>(null);
   const playerRemote = useMediaRemote(player);
 
-  const [videoSource, setVideoSource] = useState<string>("");
+  const [videoSource, setVideoSource] = useState([{ src: "", type: "" }]);
   const [videoType, setVideoType] = useState<string>("");
   const [videoPoster, setVideoPoster] = useState<string>("");
   const [videoTitle, setVideoTitle] = useState<string>("");
+
+  const searchParams = useSearchParams()
 
   // Fetch playback data
   const { data } = useQuery({
@@ -90,13 +94,20 @@ const NewVideoPlayer = ({ vod }: any) => {
       type = "application/x-mpegURL";
     }
 
-    setVideoSource(`${publicRuntimeConfig.CDN_URL}${vod.video_path}`);
+    setVideoSource([
+      {
+        src: `${publicRuntimeConfig.CDN_URL}${escapeURL(vod.video_path)}`,
+        type: type,
+      },
+    ]);
     setVideoType(type);
     setVideoTitle(vod.title);
 
     // If thumbnail
     if (vod.thumbnail_path) {
-      setVideoPoster(`${publicRuntimeConfig.CDN_URL}${vod.thumbnail_path}`);
+      setVideoPoster(
+        `${publicRuntimeConfig.CDN_URL}${escapeURL(vod.video_path)}`
+      );
     }
 
     // If captions
@@ -118,6 +129,12 @@ const NewVideoPlayer = ({ vod }: any) => {
     // Playback data
     if (data.time) {
       player.current!.currentTime = data.time;
+    }
+
+    // Check if time is set in the url
+    const time = searchParams.get("t");
+    if (time) {
+      player.current!.currentTime = parseInt(time);
     }
 
     const mediaFullscreenButton = document.querySelector("media-menu");
