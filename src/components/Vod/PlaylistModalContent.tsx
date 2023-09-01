@@ -81,7 +81,7 @@ export const VodPlaylistModalContent = ({ vod }: any) => {
     },
   });
 
-  if (error) return <div>Fehler beim Laden</div>;
+  if (error) return <div>failed to load</div>;
   if (isLoading)
     return (
       <div>
@@ -108,7 +108,7 @@ export const VodPlaylistModalContent = ({ vod }: any) => {
           value={value}
           onChange={setValue}
           searchable
-          placeholder="Eine Wiedergabeliste auswählen"
+          placeholder="Select a Playlist"
           dropdownPosition="bottom"
         />
         <Button

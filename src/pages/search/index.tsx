@@ -29,7 +29,7 @@ const SearchPage = (props: SearchPageProps) => {
   const [limit, setLimit] = useState(24);
   const handlers = useRef<NumberInputHandlers>();
 
-  useDocumentTitle("VodArchiv.net - Suche");
+  useDocumentTitle("Ganymede - Search");
 
   useEffect(() => {
     if (props.q && props.q.length > 0) {

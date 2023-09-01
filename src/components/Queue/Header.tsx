@@ -1,6 +1,7 @@
 import { Container, createStyles, Image, Text, Tooltip } from "@mantine/core";
 import dayjs from "dayjs";
 import getConfig from "next/config";
+import { escapeURL } from "../../util/util";
 
 const useStyles = createStyles((theme) => ({
   queueHeader: {
@@ -20,12 +21,10 @@ const useStyles = createStyles((theme) => ({
     },
   },
   queueHeaderTitle: {
-    fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "24px",
   },
   queueHeaderHoverText: {
-    fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "18px",
   },
@@ -33,7 +32,6 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: "10px",
   },
   liveArchive: {
-    fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "18px",
     backgroundColor: theme.colors.red[8],
@@ -43,7 +41,6 @@ const useStyles = createStyles((theme) => ({
     marginRight: "7px",
   },
   onHold: {
-    fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "18px",
     backgroundColor: theme.colors.indigo[8],
@@ -64,7 +61,8 @@ const QueueHeader = ({ queue }: Object) => {
           <div>
             <Image
               src={
-                publicRuntimeConfig.CDN_URL + queue.edges.vod.web_thumbnail_path
+                publicRuntimeConfig.CDN_URL +
+                escapeURL(queue.edges.vod.thumbnail_path)
               }
               width={160}
             />
@@ -101,7 +99,7 @@ const QueueHeader = ({ queue }: Object) => {
                 title="Streamed At"
                 className={classes.queueHeaderHoverText}
               >
-                {dayjs(queue.edges.vod.streamed_at).format("DD.MM.YYYY")}
+                {dayjs(queue.edges.vod.streamed_at).format("YYYY/MM/DD")}
               </span>
             </div>
           </div>

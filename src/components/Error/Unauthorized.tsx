@@ -61,12 +61,13 @@ export function Unauthorized() {
         align="center"
         className={classes.description}
       >
-        Entweder bist du nicht eingeloggt oder du hast keine Berechtigung diese Seite zu sehen.
+        Either you are not logged in or you do not have permission to view this
+        page.
       </Text>
       <Group position="center">
         <Link href="/">
           <Button variant="subtle" size="md">
-            Zurück zur Startseite
+            Take me back to home page
           </Button>
         </Link>
       </Group>

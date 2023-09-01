@@ -3,6 +3,7 @@ import { IconLock } from "@tabler/icons";
 import getConfig from "next/config";
 import React from "react";
 import { Video } from "../../ganymede-defs";
+import { escapeURL } from "../../util/util";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -46,7 +47,7 @@ const VodLoginRequired = (vod: Video) => {
 
   const getImageUrl = () => {
     if (vod.thumbnail_path) {
-      return `${publicRuntimeConfig.CDN_URL}${vod.thumbnail_path}`;
+      return `${publicRuntimeConfig.CDN_URL}${escapeURL(vod.thumbnail_path)}`;
     } else {
       return "/images/landing-hero.webp";
     }
@@ -63,7 +64,7 @@ const VodLoginRequired = (vod: Video) => {
           <IconLock size={64} className={classes.icon} />
         </Center>
         <div className={classes.text}>
-          Du musst eingeloggt sein, um dieses Video anzuschauen!
+          You must be logged in to view this video
         </div>
       </div>
     </div>

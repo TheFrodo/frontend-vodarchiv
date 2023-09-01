@@ -27,6 +27,7 @@ import { IconCircleCheck, IconMenu2 } from "@tabler/icons";
 import { ROLES } from "../../hooks/useJsxAuth";
 import { VodMenu } from "./Menu";
 import Link from "next/link";
+import { escapeURL } from "../../util/util";
 dayjs.extend(duration);
 dayjs.extend(localizedFormat);
 
@@ -176,14 +177,16 @@ const VideoCard = ({
           <a>
             <Image
               className={classes.videoImage}
-              src={`${publicRuntimeConfig.CDN_URL}${video.web_thumbnail_path}`}
+              src={`${publicRuntimeConfig.CDN_URL}${escapeURL(
+                video.web_thumbnail_path
+              )}`}
               onError={handleError}
               width={imageError ? "100%" : "100%"}
               height={imageError ? "5rem" : "100%"}
               withPlaceholder
               placeholder={
                 <Text style={{ height: "5rem !important" }} align="center">
-                  Das Bild konnte nicht geladen werden!
+                  This image could not be loaded
                 </Text>
               }
             />
@@ -240,13 +243,13 @@ const VideoCard = ({
       <Group position="apart" className={classes.footer}>
         <Center>
           <Tooltip
-            label={`Gestreamt am ${new Date(
+            label={`Streamed on ${new Date(
               video.streamed_at
             ).toLocaleString()}`}
           >
             <Badge color={theme.colorScheme === "dark" ? "gray" : "dark"}>
               <Text>
-                {dayjs(video.streamed_at).format("DD.MM.YYYY")}{" "}
+                {dayjs(video.streamed_at).format("YYYY/MM/DD")}{" "}
                 {user.settings.moreUIDetails && (
                   <span>{dayjs(video.streamed_at).format("LT")}</span>
                 )}

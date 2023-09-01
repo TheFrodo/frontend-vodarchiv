@@ -54,8 +54,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Kanal aktualisiert",
-              message: "Der Kanal wurde erfolgreich aktualisiert!",
+              title: "Channel Updated",
+              message: "Channel has been updated successfully",
             });
             handleClose();
           })
@@ -84,8 +84,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Kanal erstellt",
-              message: "Der Kanal wurde erfolgreich erstellt!",
+              title: "Channel Created",
+              message: "Channel has been created successfully",
             });
             handleClose();
           })
@@ -111,8 +111,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
         .then(() => {
           setUpdateImageLoading(false);
           showNotification({
-            title: "Kanal aktualisiert",
-            message: "Kanalbild wurde erfolgreich aktualisiert",
+            title: "Channel Updated",
+            message: "Channel image has been updated successfully",
           });
           handleClose();
         })
@@ -163,8 +163,9 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
           <Tooltip
             multiline
             width={400}
-            label="Wenn diese Einstellung aktiviert ist, werden die Kanalvideos (einschließlich der Dateien) nach einer bestimmten Zeitspanne gelöscht.
-            Sperren Sie ein Video, um zu verhindern, dass es gelöscht wird."
+            label="If this setting is enabled, channel videos will be deleted (including files) after a
+          certain amount of time. 'Lock' a video to prevent it from being
+          deleted."
           >
             <ActionIcon color="dark">
               <IconQuestionCircle size="1.125rem" />

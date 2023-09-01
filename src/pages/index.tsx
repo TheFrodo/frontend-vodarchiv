@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
 export default function Home() {
   const { classes } = useStyles();
 
-  useDocumentTitle("VodArchiv");
+  useDocumentTitle("Ganymede");
 
   const user = useUserStore((state) => state);
 
@@ -55,7 +55,7 @@ export default function Home() {
       )}
       <div className={classes.recentlyArchivedSection}>
         <Center>
-          <Title className={classes.title}>Kürzlich archiviert</Title>
+          <Title className={classes.title}>Recently Archived</Title>
         </Center>
         <Center>
           <LandingRecentlyArchived />

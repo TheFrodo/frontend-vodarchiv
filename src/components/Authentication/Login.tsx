@@ -35,7 +35,7 @@ export function LoginForm(props: PaperProps) {
     validate: {
       password: (val) =>
         val.length <= 8
-          ? "Das Passwort sollte mindestens 8 Zeichen enthalten"
+          ? "Password should include at least 8 characters"
           : null,
     },
   });
@@ -55,7 +55,7 @@ export function LoginForm(props: PaperProps) {
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" weight={500}>
-        Willkommen bei VodArchiv.net
+        Welcome to Ganymede
       </Text>
 
       {publicRuntimeConfig.SHOW_SSO_LOGIN_BUTTON != "false" ? (
@@ -100,7 +100,7 @@ export function LoginForm(props: PaperProps) {
             }
             error={
               form.errors.password &&
-              "Das Passwort sollte mindestens 8 Zeichen enthalten"
+              "Password should include at least 8 characters"
             }
           />
         </Stack>

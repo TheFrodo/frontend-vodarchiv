@@ -55,7 +55,7 @@ const VodPage = (props: any) => {
   const { ref, toggle, fullscreen } = useFullscreen();
   const isSmallDevice = useRef(false);
 
-  useDocumentTitle(`VodArchiv.net - VOD ${props.vodId}`);
+  useDocumentTitle(`Ganymede - VOD ${props.vodId}`);
 
   const { data } = useQuery({
     queryKey: ["vod", props.vodId],
@@ -107,7 +107,7 @@ const VodPage = (props: any) => {
   return (
     <div>
       <Head>
-        <title>{data.title} - VodArchiv.net</title>
+        <title>{data.title} - Ganymede</title>
       </Head>
       {checkLoginRequired() && <VodLoginRequired {...data} />}
       {!checkLoginRequired() && (

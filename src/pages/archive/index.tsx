@@ -66,14 +66,14 @@ const ArchivePage = () => {
   );
   const [channelData, setChannelData] = useState([]);
   const [channelId, setChannelID] = useState("");
-  useDocumentTitle("Archive - VodArchiv.net");
+  useDocumentTitle("Archive - Ganymede");
 
   const qualityOptions = [
     { label: "Best", value: "best" },
     { label: "720p60", value: "720p60" },
-    { label: "480p30", value: "480p30" },
-    { label: "360p30", value: "360p30" },
-    { label: "160p30", value: "160p30" },
+    { label: "480p", value: "480p30" },
+    { label: "360p", value: "360p30" },
+    { label: "160p", value: "160p30" },
   ];
 
   const archiveVodSubmit = useMutation({
@@ -225,7 +225,7 @@ const ArchivePage = () => {
                 </Center>
                 <Center mb={10}>
                   <Text>
-                    Gebe eine Video-ID ein oder wähle einen Kanal, um einen Livestream zu archivieren.
+                    Enter a video ID or select a channel to archive a livestream
                   </Text>
                 </Center>
                 <TextInput
