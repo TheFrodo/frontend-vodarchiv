@@ -65,7 +65,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         const data = await axios.get(
           `${publicRuntimeConfig.API_URL}/api/v1/vod/${vod.id}/chat/emotes`
         );
-        console.log(`Loaded ${data.data.emotes.length} emotes`);
+        console.log(`Es wurden ${data.data.emotes.length} Emotes geladen`);
         data.data.emotes.forEach((emote: GanymedeEmote) => {
           if (emote.name == null || emote.name == "") {
             // If Twitch emote, see the emote ID as the key
@@ -80,7 +80,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         });
         console.log("Emote map:", emoteMap);
       } catch (error) {
-        console.error("Error fetching emotes", error);
+        console.error("Fehler beim abrufen der Emotes", error);
       }
     };
 
@@ -119,7 +119,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         console.log(`Loaded ${generalBadgeMap.size} general badges`);
         console.log(`Loaded ${subscriptionBadgeMap.size} subscription badges`);
       } catch (error) {
-        console.error("Error fetching badges", error);
+        console.error("Fehler beim laden der badges", error);
       }
     };
 
@@ -130,9 +130,9 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         setReady(true);
         internalReady = true;
 
-        createCustomComment("Chat player ready.");
+        createCustomComment("Chat player ist bereit.");
         createCustomComment(
-          `Fetched ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ${emoteMap.size.toLocaleString()} emotes.`
+          `Es wurden ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, und ${emoteMap.size.toLocaleString()} emotes geladen.`
         );
       });
     });
@@ -259,7 +259,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
           recChat.push(...chatReq.data);
         }
       } catch (error) {
-        console.error("Error fetching chat", error);
+        console.error("Fehler beim laden vom Chat", error);
       }
     };
 
@@ -274,7 +274,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
           recChat.push(...chatReq.data);
         }
       } catch (error) {
-        console.error("Error fetching chat", error);
+        console.error("Fehler beim laden vom Chat", error);
       }
     };
 
@@ -301,7 +301,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
     const clearChat = () => {
       chat.current = [];
       recChat = [];
-      createCustomComment("Time skip detected. Chat cleared.");
+      createCustomComment("Es wurde ein Skip erkannt. Der Chat wurde geleert.");
     };
 
     const videoPlayerInterval = setInterval(() => {
@@ -369,7 +369,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "Ganymede",
+        display_name: "Olaf der Weidengeist",
       },
       message: {
         body: message,
@@ -394,7 +394,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
             <Center>
               <Loader color="violet" size="xl" />
             </Center>
-            <Text mt={5}>Loading Chat</Text>
+            <Text mt={5}>Chat wird geladen...</Text>
           </div>
         </Center>
       )}

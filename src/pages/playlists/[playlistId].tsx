@@ -16,7 +16,7 @@ const PlaylistPage = (props: any) => {
   const [deletePlaylistModalOpened, setDeletePlaylistModalOpened] =
     useState(false);
 
-  useDocumentTitle(`Ganymede - Playlist ${props.playlistId}`);
+  useDocumentTitle(`VodArchiv - Playlist ${props.playlistId}`);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["playlist", props.playlistId],
@@ -57,13 +57,13 @@ const PlaylistPage = (props: any) => {
     setDeletePlaylistModalOpened(true);
   };
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
     <div>
       <Head>
-        <title>{data.name} - Ganymede Playlist</title>
+        <title>{data.name} - VodArchiv Playlist</title>
       </Head>
       <PlaylistHeader
         playlist={data}

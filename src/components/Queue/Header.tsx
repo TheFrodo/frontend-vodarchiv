@@ -84,7 +84,7 @@ const QueueHeader = ({ queue }: Object) => {
               </span>
               {" - "}
               <span
-                title="Ganymede ID"
+                title="VodArchiv ID"
                 className={classes.queueHeaderHoverText}
               >
                 {queue.edges.vod.id}
@@ -94,12 +94,12 @@ const QueueHeader = ({ queue }: Object) => {
               {queue.live_archive && (
                 <span className={classes.liveArchive}>Live Archive</span>
               )}
-              {queue.on_hold && <span className={classes.onHold}>On Hold</span>}
+              {queue.on_hold && <span className={classes.onHold}>In Warteposition</span>}
               <span
-                title="Streamed At"
+                title="Gestreamt am"
                 className={classes.queueHeaderHoverText}
               >
-                {dayjs(queue.edges.vod.streamed_at).format("YYYY/MM/DD")}
+                {dayjs(queue.edges.vod.streamed_at).format("DD.MM.YYYY")}
               </span>
             </div>
           </div>

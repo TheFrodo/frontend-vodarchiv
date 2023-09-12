@@ -26,7 +26,7 @@ const PlaylistTable = () => {
       ).then((res) => res?.data),
   });
 
-  if (error) return <div>Failed to load</div>;
+  if (error) return <div>fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (

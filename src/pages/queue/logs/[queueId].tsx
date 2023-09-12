@@ -23,7 +23,7 @@ const QueueLogsPage = (props: any) => {
   const [intervalMs, setIntervalMs] = useState(1000);
   const logEndRef = useRef(null);
 
-  useDocumentTitle("Ganymede - Logs");
+  useDocumentTitle("VodArchiv - Logs");
 
   const { error, isLoading, data } = useQuery(
     ["queue-item", props.queueId],
@@ -52,7 +52,7 @@ const QueueLogsPage = (props: any) => {
     return () => clearInterval(logScrollInterval);
   });
 
-  if (error) return <div>Failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (

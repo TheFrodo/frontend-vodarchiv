@@ -35,7 +35,7 @@ export function LoginForm(props: PaperProps) {
     validate: {
       password: (val) =>
         val.length <= 8
-          ? "Password should include at least 8 characters"
+          ? "Das Passwort sollte mindestens 8 Zeichen enthalten"
           : null,
     },
   });
@@ -55,7 +55,7 @@ export function LoginForm(props: PaperProps) {
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" weight={500}>
-        Welcome to Ganymede
+        Willkommen bei VodArchiv
       </Text>
 
       {publicRuntimeConfig.SHOW_SSO_LOGIN_BUTTON != "false" ? (
@@ -64,11 +64,11 @@ export function LoginForm(props: PaperProps) {
             <Link
               href={`${publicRuntimeConfig.API_URL}/api/v1/auth/oauth/login`}
             >
-              <SSOButton>Login with SSO</SSOButton>
+              <SSOButton>Anmeldung über SSO</SSOButton>
             </Link>
           </Group>
           <Divider
-            label="Or continue with username"
+            label="Oder weiter mit Benutzername"
             labelPosition="center"
             my="lg"
           />
@@ -82,7 +82,7 @@ export function LoginForm(props: PaperProps) {
           <TextInput
             required
             label="Username"
-            placeholder="Your username"
+            placeholder="Dein Benutzername"
             value={form.values.username}
             onChange={(event) =>
               form.setFieldValue("username", event.currentTarget.value)
@@ -93,14 +93,14 @@ export function LoginForm(props: PaperProps) {
           <PasswordInput
             required
             label="Password"
-            placeholder="Your password"
+            placeholder="Dein Passwort"
             value={form.values.password}
             onChange={(event) =>
               form.setFieldValue("password", event.currentTarget.value)
             }
             error={
               form.errors.password &&
-              "Password should include at least 8 characters"
+              "Das Passwort sollte mindestens 8 Zeichen enthalten"
             }
           />
         </Stack>

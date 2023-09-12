@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
 export default function Home() {
   const { classes } = useStyles();
 
-  useDocumentTitle("Ganymede");
+  useDocumentTitle("VodArchiv");
 
   const user = useUserStore((state) => state);
 

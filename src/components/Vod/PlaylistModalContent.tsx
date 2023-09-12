@@ -121,7 +121,7 @@ export const VodPlaylistModalContent = ({ vod }: any) => {
         </Button>
       </Group>
       <Text size="lg" weight={500} pt={5}>
-        Current Playlists:
+        aktuelle Playlists:
       </Text>
       {dataVP &&
         dataVP.map((playlist: any) => (

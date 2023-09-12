@@ -38,7 +38,7 @@ const QueueRestartTaskModalContent = ({ queue, task }: any) => {
   return (
     <div>
       <div>
-        Restart task <Code>{task}</Code> for queue item <Code>{queue.id}</Code>?
+        Neustart der Aufgabe <Code>{task}</Code> für Warteschlangenposition <Code>{queue.id}</Code>?
       </div>
       <div>
         <Switch

@@ -37,7 +37,7 @@ export function LandingLoggedInHero() {
   return (
     <div className={classes.root}>
       <Center>
-        <Title className={classes.title}>Ganymede</Title>
+        <Title className={classes.title}>VodArchiv</Title>
       </Center>
     </div>
   );

@@ -35,7 +35,7 @@ export const useLogin = () => {
       setError(error);
       showNotification({
         autoClose: 5000,
-        title: "Login Failed",
+        title: "Anmeldung fehlgeschlagen!",
         message: error.response.data.message,
         styles: (theme) => ({
           root: {

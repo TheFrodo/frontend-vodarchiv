@@ -98,30 +98,19 @@ export function LandingHero() {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              Twitch{" "}
               <Text
                 component="span"
                 inherit
                 variant="gradient"
                 gradient={{ from: "orange", to: "purple" }}
               >
-                Live Stream{" "}
-              </Text>{" "}
-              and{" "}
-              <Text
-                component="span"
-                inherit
-                variant="gradient"
-                gradient={{ from: "purple", to: "orange" }}
-              >
-                VOD{" "}
-              </Text>{" "}
-              archiving platform
+                VodArchiv.net{" "}
+              </Text>
             </Title>
 
             <Text className={classes.description} mt={30}>
-              Seamlessly archive live streams and vods. Each archive includes a
-              chat replay and rendered chat.
+            Nahtlose Archivierung von Livestreams und Videoclips. 
+            Jedes Archiv enthält eine Chat-Wiederholung und einen gerenderten Chat.
             </Text>
 
             <div className={classes.landingButtons}>
@@ -133,7 +122,7 @@ export function LandingHero() {
                   className={classes.control}
                   mt={40}
                 >
-                  Channels
+                  Zu den Kanälen
                 </Button>
               </Link>
 

@@ -212,27 +212,27 @@ export const VodMenu = ({ vod, style }: any) => {
             onClick={() => markAsWatched.mutate()}
             icon={<IconHourglassHigh size={14} />}
           >
-            Mark as Watched
+            Als gesehen markieren
           </Menu.Item>
           <Menu.Item
             onClick={() => markAsUnWatched.mutate()}
             icon={<IconHourglassEmpty size={14} />}
           >
-            Mark as Unwatched
+            Als unbeachtet markieren
           </Menu.Item>
           {isLocked.current ? (
             <Menu.Item
               onClick={() => lockVod.mutate(false)}
               icon={<IconLockOpen size={14} />}
             >
-              Unlock
+              Freischaltung
             </Menu.Item>
           ) : (
             <Menu.Item
               onClick={() => lockVod.mutate(true)}
               icon={<IconLock size={14} />}
             >
-              Lock
+              Sperren
             </Menu.Item>
           )}
           {useJsxAuth({
@@ -246,7 +246,7 @@ export const VodMenu = ({ vod, style }: any) => {
                 }}
                 icon={<IconTrashX size={14} />}
               >
-                Delete
+                Löschen
               </Menu.Item>
             )}
           <Menu.Item

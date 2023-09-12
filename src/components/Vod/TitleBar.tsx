@@ -78,7 +78,7 @@ export const VodTitleBar = ({ vod }: any) => {
             {vod.views ? (
               <Group mr={15}>
                 <Tooltip
-                  label={`${vod.views.toLocaleString()} views`}
+                  label={`${vod.views.toLocaleString()} Aufrufe`}
                   openDelay={250}
                 >
                   <div className={classes.titleBarBadge}>
@@ -89,7 +89,7 @@ export const VodTitleBar = ({ vod }: any) => {
               </Group>
             ) : (
               <Group mr={15}>
-                <Tooltip label={`0 views`} openDelay={250}>
+                <Tooltip label={`0 Aufrufe`} openDelay={250}>
                   <div className={classes.titleBarBadge}>
                     <Text mr={3}>0</Text>
                     <IconUsers size={20} />
@@ -99,19 +99,19 @@ export const VodTitleBar = ({ vod }: any) => {
             )}
             <Group mr={15}>
               <Tooltip
-                label={`Originally streamed at ${vod.streamed_at}`}
+                label={`Ursprünglich gestreamt: ${vod.streamed_at}`}
                 openDelay={250}
               >
                 <div className={classes.titleBarBadge}>
                   <Text mr={5}>
-                    {dayjs(vod.streamed_at).format("YYYY/MM/DD")}
+                    {dayjs(vod.streamed_at).format("DD.MM.YYYY")}
                   </Text>
                   <IconCalendarEvent size={20} />
                 </div>
               </Tooltip>
             </Group>
             <Group>
-              <Tooltip label={`Video Type`} openDelay={250}>
+              <Tooltip label={`Video Typ`} openDelay={250}>
                 <div className={classes.titleBarBadge}>
                   <Badge color="red" color="violet" size="lg">
                     {vod.type}

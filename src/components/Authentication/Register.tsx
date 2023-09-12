@@ -33,7 +33,7 @@ export function RegisterForm(props: PaperProps) {
     validate: {
       password: (val) =>
         val.length <= 7
-          ? "Password should include at least 8 characters"
+          ? "Das Passwort sollte mindestens 8 Zeichen enthalten"
           : null,
     },
   });
@@ -87,7 +87,7 @@ export function RegisterForm(props: PaperProps) {
             }
             error={
               form.errors.password &&
-              "Password should include at least 8 characters"
+              "Das Passwort sollte mindestens 8 Zeichen enthalten"
             }
           />
         </Stack>
@@ -95,7 +95,7 @@ export function RegisterForm(props: PaperProps) {
         <Group position="apart" mt="xl">
           <Link href="/login">
             <Anchor component="button" type="button" color="dimmed" size="xs">
-              Have an account? Login
+              Du hast bereits einen Account? Dann logge dich ein
             </Anchor>
           </Link>
           <Button color="violet" type="submit" loading={loading}>

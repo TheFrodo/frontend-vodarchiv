@@ -134,7 +134,7 @@ const adminLinks = [
   {
     id: "channels",
     icon: IconUsers,
-    title: "Channels",
+    title: "Kanäle",
     description: "Manage and create channels",
     link: "/admin/channels",
   },
@@ -148,28 +148,28 @@ const adminLinks = [
   {
     id: "user",
     icon: IconUser,
-    title: "Users",
+    title: "Benutzer",
     description: "Manage users",
     link: "/admin/users",
   },
   {
     id: "queue",
     icon: IconListDetails,
-    title: "Queue",
+    title: "Warteschlange",
     description: "Manage queue items",
     link: "/admin/queue",
   },
   {
     id: "watched",
     icon: IconCalendarTime,
-    title: "Watched Channels",
+    title: "Überwachte Kanäle",
     description: "Manage watched channels",
     link: "/admin/watched",
   },
   {
     id: "settings",
     icon: IconSettings,
-    title: "Settings",
+    title: "Einstellungen",
     description: "Manage settings",
     link: "/admin/settings",
   },
@@ -183,7 +183,7 @@ const adminLinks = [
   {
     id: "tasks",
     icon: IconSubtask,
-    title: "Tasks",
+    title: "Aufgaben",
     description: "Start various tasks",
     link: "/admin/tasks",
   },
@@ -241,10 +241,10 @@ export function HeaderMenu() {
             className={classes.hiddenMobile}
           >
             <Link href="/" className={classes.link}>
-              Home
+              Startseite
             </Link>
             <Link href="/channels" className={classes.link}>
-              Channels
+              Kanäle
             </Link>
             <Link href="/playlists" className={classes.link}>
               Playlists
@@ -262,12 +262,12 @@ export function HeaderMenu() {
               roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
             }) && (
               <Link href="/queue" className={classes.link}>
-                Queue
+                Warteschlange
               </Link>
             )}
             {useJsxAuth({ loggedIn: true, roles: [] }) && (
               <Link href="/profile" className={classes.link}>
-                Profile
+                Profil
               </Link>
             )}
             {useJsxAuth({
@@ -374,10 +374,10 @@ export function HeaderMenu() {
           />
 
           <Link href="/" className={classes.link}>
-            Home
+            Startseite
           </Link>
           <Link href="/channels" className={classes.link}>
-            Channels
+            Kanäle
           </Link>
           <Link href="/playlists" className={classes.link}>
             Playlists
@@ -395,12 +395,12 @@ export function HeaderMenu() {
             roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
           }) && (
             <Link href="/queue" className={classes.link}>
-              Queue
+              Warteschlange
             </Link>
           )}
           {useJsxAuth({ loggedIn: true, roles: [] }) && (
             <Link href="/profile" className={classes.link}>
-              Profile
+              Profil
             </Link>
           )}
           {useJsxAuth({

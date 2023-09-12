@@ -166,7 +166,7 @@ const VideoCard = ({
         <Overlay color="#000" opacity={0.55}>
           <div className={classes.processingOverlay}>
             <Text fw={700} size="xl">
-              Processing
+              Verarbeitung
             </Text>
             <Loader color="violet" size="lg" />;
           </div>
@@ -186,7 +186,7 @@ const VideoCard = ({
               withPlaceholder
               placeholder={
                 <Text style={{ height: "5rem !important" }} align="center">
-                  This image could not be loaded
+                  Dieses Bild konnte nicht geladen werden
                 </Text>
               }
             />
@@ -249,7 +249,7 @@ const VideoCard = ({
           >
             <Badge color={theme.colorScheme === "dark" ? "gray" : "dark"}>
               <Text>
-                {dayjs(video.streamed_at).format("YYYY/MM/DD")}{" "}
+                {dayjs(video.streamed_at).format("DD.MM.YYYY")}{" "}
                 {user.settings.moreUIDetails && (
                   <span>{dayjs(video.streamed_at).format("LT")}</span>
                 )}

@@ -57,7 +57,7 @@ const LandingContinueWatching = () => {
       }),
   });
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>fehler beim laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
@@ -65,7 +65,7 @@ const LandingContinueWatching = () => {
       {data?.data?.length > 0 && (
         <div>
           <Center>
-            <Title className={classes.title}>Continue Watching</Title>
+            <Title className={classes.title}>Weiterschauen</Title>
           </Center>
           <Container size="2xl">
             <div className={classes.vodSection}>

@@ -29,7 +29,7 @@ export const VodInfoModalContent = ({ vod }: any) => {
         <Text mt={15} size="lg" weight={500}>
           Video FFprobe
         </Text>
-        {error && <div>failed to load</div>}
+        {error && <div>Fehler beim Laden</div>}
         {isLoading && <Loader />}
         {data && <Code block>{JSON.stringify(data.data, null, 2)}</Code>}
       </div>
