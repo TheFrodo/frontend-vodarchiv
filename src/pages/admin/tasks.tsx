@@ -42,9 +42,8 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: theme.spacing.xs,
     marginTop: theme.spacing.md,
     marginBottom: theme.spacing.md,
-    border: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
-    }`,
+    border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
+      }`,
     boxShadow: theme.shadows.sm,
   },
   taskItem: {
