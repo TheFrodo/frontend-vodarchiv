@@ -9,7 +9,7 @@ import classes from "./playlists.module.css"
 const PlaylistsPage = () => {
   const [opened, setOpened] = useState(false);
 
-  useDocumentTitle("Playlists - Ganymede");
+  useDocumentTitle("Playlists - VodArchiv");
 
   const closeModalCallback = () => {
     setOpened(false);

@@ -152,7 +152,7 @@ export function HeaderMegaMenu() {
               Home
             </Link>
             <Link href="/channels" className={classes.link}>
-              Channels
+              Kanäle
             </Link>
             <Link href="/playlists" className={classes.link}>
               Playlists
@@ -162,7 +162,7 @@ export function HeaderMegaMenu() {
               roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
             }) && (
                 <Link href="/archive" className={classes.link}>
-                  Archive
+                  Archiv
                 </Link>
               )}
             {useJsxAuth({
@@ -178,12 +178,12 @@ export function HeaderMegaMenu() {
               roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
             }) && (
                 <Link href="/queue" className={classes.link}>
-                  Queue
+                  Warteschlange
                 </Link>
               )}
             {useJsxAuth({ loggedIn: true, roles: [] }) && (
               <Link href="/profile" className={classes.link}>
-                Profile
+                Profil
               </Link>
             )}
 
@@ -240,12 +240,12 @@ export function HeaderMegaMenu() {
                   </Link>
                 ) : (
                   <Link href="/login" style={{ marginRight: "0.75rem" }}>
-                    <Button variant="default">Log in</Button>
+                    <Button variant="default">Einloggen</Button>
                   </Link>
                 )}
 
                 <Link href="/register">
-                  <Button color="violet">Sign up</Button>
+                  <Button color="violet">Registrieren</Button>
                 </Link>
               </div>
             )}
@@ -271,7 +271,7 @@ export function HeaderMegaMenu() {
             Home
           </Link>
           <Link href="/channels" className={classes.link}>
-            Channels
+            Kanäle
           </Link>
           <Link href="/playlists" className={classes.link}>
             Playlists
@@ -297,7 +297,7 @@ export function HeaderMegaMenu() {
             roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
           }) && (
               <Link href="/queue" className={classes.link}>
-                Queue
+                Warteschlange
               </Link>
             )}
           {useJsxAuth({ loggedIn: true, roles: [] }) && (
@@ -351,16 +351,16 @@ export function HeaderMegaMenu() {
                     href={`${publicRuntimeConfig.API_URL}/api/v1/auth/oauth/login`}
                     style={{ marginRight: "0.75rem" }}
                   >
-                    <Button variant="default">Log in</Button>
+                    <Button variant="default">Einloggen</Button>
                   </Link>
                 ) : (
                   <Link href="/login" style={{ marginRight: "0.75rem" }}>
-                    <Button variant="default">Log in</Button>
+                    <Button variant="default">Einloggen</Button>
                   </Link>
                 )}
 
                 <Link href="/register">
-                  <Button color="violet">Sign up</Button>
+                  <Button color="violet">Registrieren</Button>
                 </Link>
               </div>
             )}

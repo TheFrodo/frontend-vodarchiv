@@ -32,7 +32,7 @@ const ProfilePage = () => {
   const [showMoreUIDetails, setShowMoreUIDetails] = useState(false);
 
 
-  useDocumentTitle("Profile - Ganymede");
+  useDocumentTitle("Profile - VodArchiv");
 
   useEffect(() => {
     setUseNewChatPlayer(user.settings.useNewChatPlayer);

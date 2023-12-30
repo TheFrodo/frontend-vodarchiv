@@ -10,19 +10,19 @@ export function LandingHero() {
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Ganymede
+          VodArchiv
         </Title>
 
         <Container size={640}>
           <Text size="lg" className={classes.description}>
-            Effortlessly preserve live streams and VODs. Every archive comes complete with a chat replay and a rendered chat experience.
+            Deine Plattform, wenn es um Twitch VOD's geht!
           </Text>
         </Container>
 
         <div className={classes.controls}>
           <Link href="/channels">
             <Button className={classes.control} variant="white" size="lg">
-              Channels
+              Kanäle
             </Button>
           </Link>
           <Link href="/login">

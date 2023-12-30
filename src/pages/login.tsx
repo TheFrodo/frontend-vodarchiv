@@ -3,7 +3,7 @@ import { Container } from "@mantine/core";
 import { useDocumentTitle } from "@mantine/hooks";
 
 const LoginPage = () => {
-  useDocumentTitle("Ganymede - Login");
+  useDocumentTitle("VodArchiv - Login");
   return (
     <div>
       <Container mt={50} size="sm">

@@ -181,7 +181,7 @@ const VideoCard = ({
         >
 
           <Text size="sm">
-            {dayjs(video.streamed_at).format("YYYY/MM/DD")}{" "}
+            {dayjs(video.streamed_at).format("DD.MM.YYYY")}{" "}
             {user.settings.moreUIDetails && (
               <span>{dayjs(video.streamed_at).format("LT")}</span>
             )}

@@ -115,9 +115,9 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         setReady(true);
         internalReady = true;
 
-        createCustomComment("Chat player ready.");
+        createCustomComment("VODChat ist bereit!");
         createCustomComment(
-          `Fetched ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ${emoteMap.size.toLocaleString()} emotes.`
+          `Es wurden ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, und ${emoteMap.size.toLocaleString()} emotes abgerufen.`
         );
       });
     });
@@ -286,7 +286,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
     const clearChat = () => {
       chat.current = [];
       recChat = [];
-      createCustomComment("Time skip detected. Chat cleared.");
+      createCustomComment("Es wurde ein Zeitsprung erkannt. Der Chat wurde geleert.");
     };
 
     const videoPlayerInterval = setInterval(() => {
@@ -354,7 +354,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "Ganymede",
+        display_name: "VODChat",
       },
       message: {
         body: message,

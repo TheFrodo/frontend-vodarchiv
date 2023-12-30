@@ -16,7 +16,7 @@ const PlaylistPage = (props: any) => {
   const [deletePlaylistModalOpened, setDeletePlaylistModalOpened] =
     useState(false);
 
-  useDocumentTitle(`Ganymede - Playlist ${props.playlistId}`);
+  useDocumentTitle(`VodArchiv - Playlist ${props.playlistId}`);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["playlist", props.playlistId],

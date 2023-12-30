@@ -97,7 +97,7 @@ const VodPage = (props: any) => {
   }, [leftColumnRef, rightColumnRef, isMobile])
 
 
-  useDocumentTitle(`Ganymede - VOD ${props.vodId}`);
+  useDocumentTitle(`VodArchiv - VOD ${props.vodId}`);
 
   const { data } = useQuery({
     queryKey: ["vod", props.vodId],
@@ -149,7 +149,7 @@ const VodPage = (props: any) => {
   return (
     <div>
       <Head>
-        <title>{data.title} - Ganymede</title>
+        <title>{data.title} - VodArchiv</title>
       </Head>
       {checkLoginRequired() && <VodLoginRequired {...data} />}
       {!checkLoginRequired() && (
