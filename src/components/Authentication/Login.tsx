@@ -1,5 +1,5 @@
-import { useToggle, upperFirst } from "@mantine/hooks";
-import { useForm } from "@mantine/form";
+import { useToggle, upperFirst } from '@mantine/hooks';
+import { useForm } from '@mantine/form';
 import {
   TextInput,
   PasswordInput,
@@ -13,31 +13,23 @@ import {
   Anchor,
   Stack,
   ButtonProps,
-} from "@mantine/core";
-import { IconLock } from "@tabler/icons";
-import { useLogin } from "../../hooks/useLogin";
-import { useState } from "react";
-import router from "next/router";
-import Link from "next/link";
-import getConfig from "next/config";
+} from '@mantine/core';
+import Link from 'next/link';
+import getConfig from 'next/config';
+import { useLogin } from '../../hooks/useLogin';
+import { useState } from 'react';
+import router from 'next/router';
+import { IconLock } from '@tabler/icons-react';
 
 export function LoginForm(props: PaperProps) {
   const { publicRuntimeConfig } = getConfig();
   const { login } = useLogin();
   const [loading, setLoading] = useState(false);
-
   const form = useForm({
     initialValues: {
-      username: "",
-      password: "",
-    },
-
-    validate: {
-      password: (val) =>
-        val.length <= 8
-          ? "Das Passwort sollte mindestens 8 Zeichen enthalten"
-          : null,
-    },
+      username: '',
+      password: '',
+    }
   });
 
   const handleSubmit = async (e: any) => {
@@ -54,64 +46,59 @@ export function LoginForm(props: PaperProps) {
 
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
-      <Text size="lg" weight={500}>
-        Willkommen bei VodArchiv
+      <Text size="lg" fw={500}>
+        Welcome to Ganymede, login below
       </Text>
 
-      {publicRuntimeConfig.SHOW_SSO_LOGIN_BUTTON != "false" ? (
+      {publicRuntimeConfig.SHOW_SSO_LOGIN_BUTTON != "false" && (
         <div>
           <Group grow mb="md" mt="md">
             <Link
               href={`${publicRuntimeConfig.API_URL}/api/v1/auth/oauth/login`}
             >
-              <SSOButton>Anmeldung über SSO</SSOButton>
+              <SSOButton>Login with SSO</SSOButton>
             </Link>
           </Group>
           <Divider
-            label="Oder weiter mit Benutzername"
+            label="Or continue with username"
             labelPosition="center"
             my="lg"
           />
         </div>
-      ) : (
-        <div style={{ marginBottom: "0.5rem" }}></div>
       )}
+
 
       <form onSubmit={handleSubmit}>
         <Stack>
+
           <TextInput
             required
             label="Username"
-            placeholder="Dein Benutzername"
+            placeholder="Your username"
             value={form.values.username}
-            onChange={(event) =>
-              form.setFieldValue("username", event.currentTarget.value)
-            }
-            error={form.errors.user && "Invalid username"}
+            onChange={(event) => form.setFieldValue('username', event.currentTarget.value)}
+            radius="md"
           />
 
           <PasswordInput
             required
             label="Password"
-            placeholder="Dein Passwort"
+            placeholder="Your password"
             value={form.values.password}
-            onChange={(event) =>
-              form.setFieldValue("password", event.currentTarget.value)
-            }
-            error={
-              form.errors.password &&
-              "Das Passwort sollte mindestens 8 Zeichen enthalten"
-            }
+            onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
+            radius="md"
           />
+
+
         </Stack>
 
-        <Group position="apart" mt="xl">
-          <Link href="register">
-            <Anchor component="button" type="button" color="dimmed" size="xs">
+        <Group justify="space-between" mt="xl">
+          <Link href="/register">
+            <Anchor component="button" type="button" c="dimmed" size="xs">
               Don't have an account? Register
             </Anchor>
           </Link>
-          <Button color="violet" type="submit" loading={loading}>
+          <Button type="submit" radius="xl" loading={loading}>
             Login
           </Button>
         </Group>
@@ -122,19 +109,6 @@ export function LoginForm(props: PaperProps) {
 
 export function SSOButton(props: ButtonProps) {
   return (
-    <Button
-      {...props}
-      leftIcon={<IconLock size={16} />}
-      style={{ width: "100%" }}
-      sx={(theme) => ({
-        backgroundColor:
-          theme.colors.dark[theme.colorScheme === "dark" ? 9 : 6],
-        color: "#fff",
-        "&:hover": {
-          backgroundColor:
-            theme.colors.dark[theme.colorScheme === "dark" ? 9 : 6],
-        },
-      })}
-    />
+    <Button fullWidth>Login With SSO</Button>
   );
 }

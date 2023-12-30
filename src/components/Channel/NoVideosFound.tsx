@@ -5,7 +5,7 @@ const ChannelNoVideosFound = () => {
   return (
     <div>
       <Center>
-        Keine videos gefunden
+        No videos found
         <Image src="/images/Sadge.webp" ml={5} height={19} width={27} />
       </Center>
     </div>

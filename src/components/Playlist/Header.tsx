@@ -3,37 +3,22 @@ import {
   Text,
   Menu,
   Button,
-  createStyles,
   ActionIcon,
+  Title,
 } from "@mantine/core";
-import { IconMenu2 } from "@tabler/icons";
+import { IconMenu2 } from "@tabler/icons-react";
 import useUserStore from "../../store/user";
-
-const useStyles = createStyles((theme) => ({
-  playlistHeader: {
-    height: "auto",
-    padding: "0.5rem",
-  },
-  nameContainer: {
-    display: "flex",
-  },
-  playlistMenu: {},
-  headerTitle: {
-    fontSize: "24px",
-    fontWeight: 600,
-  },
-}));
+import classes from "./Header.module.css"
 
 const PlaylistHeader = ({ playlist, handleOpen, handleDeleteOpen }: any) => {
   const user = useUserStore((state) => state);
-  const { classes, cx, theme } = useStyles();
   return (
     <div className={classes.playlistHeader}>
       <Center>
         <div className={classes.nameContainer}>
-          <Text lineClamp={1} className={classes.headerTitle}>
+          <Title>
             {playlist.name}
-          </Text>
+          </Title>
         </div>
       </Center>
       <Center>
@@ -49,10 +34,10 @@ const PlaylistHeader = ({ playlist, handleOpen, handleDeleteOpen }: any) => {
             </Menu.Target>
 
             <Menu.Dropdown>
-              <Menu.Label>Einstellungen</Menu.Label>
-              <Menu.Item onClick={() => handleOpen()}>Editieren</Menu.Item>
+              <Menu.Label>Settings</Menu.Label>
+              <Menu.Item onClick={() => handleOpen()}>Edit</Menu.Item>
               <Menu.Item onClick={() => handleDeleteOpen()} color="red">
-                Löschen
+                Delete
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>

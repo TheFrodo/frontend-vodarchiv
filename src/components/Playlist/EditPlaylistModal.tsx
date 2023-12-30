@@ -26,8 +26,8 @@ const EditPlaylistModal = ({ handleClose, playlist }) => {
         setIsSubmitting(false);
         queryClient.invalidateQueries(["playlist", playlist.id]);
         showNotification({
-          title: "Playlist bearbeitet",
-          message: "Playlist wurde erfolgreich bearbeitet!",
+          title: "Playlist Edited",
+          message: "Playlist has been edited successfully",
         });
         handleClose();
       });
@@ -47,7 +47,7 @@ const EditPlaylistModal = ({ handleClose, playlist }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
-        label="Playlist Beschreibung"
+        label="Playlist Description"
       />
       <Button
         onClick={() => editPlaylist.mutate()}
@@ -58,7 +58,7 @@ const EditPlaylistModal = ({ handleClose, playlist }) => {
         color="violet"
         loading={isSubmitting}
       >
-        Speichern
+        Save
       </Button>
     </div>
   );

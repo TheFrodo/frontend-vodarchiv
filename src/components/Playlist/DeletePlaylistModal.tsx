@@ -35,7 +35,7 @@ const DeletePlaylistModal = ({ handleClose, playlist }) => {
 
   return (
     <div>
-      <div>Bist du sicher, dass du die Playlist löschen möchtest</div>
+      <div>Are you sure you want to delete this playlist?</div>
       <div>
         Playlist ID: <Code>{playlist.id}</Code>
       </div>
@@ -51,7 +51,7 @@ const DeletePlaylistModal = ({ handleClose, playlist }) => {
         color="red"
         loading={isSubmitting}
       >
-        Löschen
+        Delete
       </Button>
     </div>
   );

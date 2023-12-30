@@ -21,15 +21,15 @@ export const useRegister = () => {
       setIsLoading(false);
 
       showNotification({
-        title: "Erfolgreich Registriert",
-        message: "Du kannst dich absofort einloggen.",
+        title: "Registration Successful",
+        message: "You can now login",
       });
     } catch (error) {
       setIsLoading(false);
       setError(error);
       showNotification({
         autoClose: 5000,
-        title: "Registrierung gescheitert",
+        title: "Registration Failed",
         message: error.response.data.message,
         styles: (theme) => ({
           root: {

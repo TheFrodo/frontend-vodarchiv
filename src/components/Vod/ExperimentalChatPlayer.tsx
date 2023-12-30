@@ -1,6 +1,5 @@
 import {
   Center,
-  createStyles,
   Divider,
   Loader,
   LoadingOverlay,
@@ -19,24 +18,10 @@ import {
 } from "../../ganymede-defs";
 import ChatMessage from "./ChatMessage";
 import vodDataBus from "./EventBus";
-
-const useStyles = createStyles((theme) => ({
-  chatContainer: {
-    height: "100%",
-    overflowY: "scroll",
-    paddingLeft: 2,
-    paddingRight: 2,
-    msOverflowStyle: "none",
-    scrollbarWidth: "none",
-    "&::-webkit-scrollbar": {
-      display: "none",
-    },
-  },
-}));
+import classes from "./ExperimentalChatPlayer.module.css"
 
 const ExperimentalChatPlayer = ({ vod }: any) => {
   const { publicRuntimeConfig } = getConfig();
-  const { classes, cx, theme } = useStyles();
   const [ready, setReady] = useState(false);
   let internalReady = false;
   let lastCheckTime = 0;
@@ -65,7 +50,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         const data = await axios.get(
           `${publicRuntimeConfig.API_URL}/api/v1/vod/${vod.id}/chat/emotes`
         );
-        console.log(`Es wurden ${data.data.emotes.length} Emotes geladen`);
+        console.log(`Loaded ${data.data.emotes.length} emotes`);
         data.data.emotes.forEach((emote: GanymedeEmote) => {
           if (emote.name == null || emote.name == "") {
             // If Twitch emote, see the emote ID as the key
@@ -80,7 +65,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         });
         console.log("Emote map:", emoteMap);
       } catch (error) {
-        console.error("Fehler beim abrufen der Emotes", error);
+        console.error("Error fetching emotes", error);
       }
     };
 
@@ -119,7 +104,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         console.log(`Loaded ${generalBadgeMap.size} general badges`);
         console.log(`Loaded ${subscriptionBadgeMap.size} subscription badges`);
       } catch (error) {
-        console.error("Fehler beim laden der badges", error);
+        console.error("Error fetching badges", error);
       }
     };
 
@@ -130,9 +115,9 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         setReady(true);
         internalReady = true;
 
-        createCustomComment("Chat player ist bereit.");
+        createCustomComment("Chat player ready.");
         createCustomComment(
-          `Es wurden ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, und ${emoteMap.size.toLocaleString()} emotes geladen.`
+          `Fetched ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ${emoteMap.size.toLocaleString()} emotes.`
         );
       });
     });
@@ -259,7 +244,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
           recChat.push(...chatReq.data);
         }
       } catch (error) {
-        console.error("Fehler beim laden vom Chat", error);
+        console.error("Error fetching chat", error);
       }
     };
 
@@ -274,7 +259,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
           recChat.push(...chatReq.data);
         }
       } catch (error) {
-        console.error("Fehler beim laden vom Chat", error);
+        console.error("Error fetching chat", error);
       }
     };
 
@@ -301,7 +286,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
     const clearChat = () => {
       chat.current = [];
       recChat = [];
-      createCustomComment("Es wurde ein Skip erkannt. Der Chat wurde geleert.");
+      createCustomComment("Time skip detected. Chat cleared.");
     };
 
     const videoPlayerInterval = setInterval(() => {
@@ -369,7 +354,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "Olaf der Weidengeist",
+        display_name: "Ganymede",
       },
       message: {
         body: message,
@@ -394,7 +379,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
             <Center>
               <Loader color="violet" size="xl" />
             </Center>
-            <Text mt={5}>Chat wird geladen...</Text>
+            <Text mt={5}>Loading Chat</Text>
           </div>
         </Center>
       )}

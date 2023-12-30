@@ -14,15 +14,15 @@ export const VodPreview = ({ vod }: TwitchVODResponse) => {
         </Title>
         <div>
           <div>
-            <span>Erstelldatum: </span>
+            <span>Created At: </span>
             {vod.created_at}
           </div>
           <div>
-            <span>Dauer: </span>
+            <span>Duration: </span>
             {vod.duration}
           </div>
           <div>
-            <span>Aufrufe: </span>
+            <span>Views: </span>
             {vod.view_count}
           </div>
         </div>
