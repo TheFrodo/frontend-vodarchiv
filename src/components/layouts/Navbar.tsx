@@ -17,6 +17,9 @@ import {
   rem,
   useMantineTheme,
   TextInput,
+  useMantineColorScheme,
+  ActionIcon,
+  useComputedColorScheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
@@ -36,6 +39,8 @@ import {
   IconInfoCircle,
   IconSubtask,
   IconSearch,
+  IconSun,
+  IconMoon,
 } from '@tabler/icons-react';
 import classes from './Navbar.module.css';
 import Image from 'next/image';
@@ -45,6 +50,7 @@ import getConfig from 'next/config';
 import useUserStore from '../../store/user';
 import router from 'next/router';
 import { useState } from 'react';
+import cx from "clsx"
 
 const adminLinks = [
   {
@@ -111,6 +117,9 @@ export function HeaderMegaMenu() {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const [search, setSearch] = useState("");
   const theme = useMantineTheme();
+  // const { setColorScheme, clearColorScheme } = useMantineColorScheme();
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
   const user = useUserStore((state) => state);
 
@@ -152,7 +161,7 @@ export function HeaderMegaMenu() {
               Home
             </Link>
             <Link href="/channels" className={classes.link}>
-              Kanäle
+              Channels
             </Link>
             <Link href="/playlists" className={classes.link}>
               Playlists
@@ -162,7 +171,7 @@ export function HeaderMegaMenu() {
               roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
             }) && (
                 <Link href="/archive" className={classes.link}>
-                  Archiv
+                  Archive
                 </Link>
               )}
             {useJsxAuth({
@@ -178,12 +187,12 @@ export function HeaderMegaMenu() {
               roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
             }) && (
                 <Link href="/queue" className={classes.link}>
-                  Warteschlange
+                  Queue
                 </Link>
               )}
             {useJsxAuth({ loggedIn: true, roles: [] }) && (
               <Link href="/profile" className={classes.link}>
-                Profil
+                Profile
               </Link>
             )}
 
@@ -240,15 +249,24 @@ export function HeaderMegaMenu() {
                   </Link>
                 ) : (
                   <Link href="/login" style={{ marginRight: "0.75rem" }}>
-                    <Button variant="default">Einloggen</Button>
+                    <Button variant="default">Log in</Button>
                   </Link>
                 )}
 
                 <Link href="/register">
-                  <Button color="violet">Registrieren</Button>
+                  <Button color="violet">Sign up</Button>
                 </Link>
               </div>
             )}
+            <ActionIcon
+              onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+              variant="default"
+              size="lg"
+              aria-label="Toggle color scheme"
+            >
+              <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
+              <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
+            </ActionIcon>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -271,7 +289,7 @@ export function HeaderMegaMenu() {
             Home
           </Link>
           <Link href="/channels" className={classes.link}>
-            Kanäle
+            Channels
           </Link>
           <Link href="/playlists" className={classes.link}>
             Playlists
@@ -297,7 +315,7 @@ export function HeaderMegaMenu() {
             roles: [ROLES.EDITOR, ROLES.ARCHIVER, ROLES.ADMIN],
           }) && (
               <Link href="/queue" className={classes.link}>
-                Warteschlange
+                Queue
               </Link>
             )}
           {useJsxAuth({ loggedIn: true, roles: [] }) && (
@@ -351,16 +369,16 @@ export function HeaderMegaMenu() {
                     href={`${publicRuntimeConfig.API_URL}/api/v1/auth/oauth/login`}
                     style={{ marginRight: "0.75rem" }}
                   >
-                    <Button variant="default">Einloggen</Button>
+                    <Button variant="default">Log in</Button>
                   </Link>
                 ) : (
                   <Link href="/login" style={{ marginRight: "0.75rem" }}>
-                    <Button variant="default">Einloggen</Button>
+                    <Button variant="default">Log in</Button>
                   </Link>
                 )}
 
                 <Link href="/register">
-                  <Button color="violet">Registrieren</Button>
+                  <Button color="violet">Sign up</Button>
                 </Link>
               </div>
             )}

@@ -26,7 +26,7 @@ const LandingContinueWatching = () => {
       }),
   });
 
-  if (error) return <div>Fehler beim Laden</div>;
+  if (error) return <div>failed to load</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
@@ -49,7 +49,7 @@ const LandingContinueWatching = () => {
       ) : (
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="xs" verticalSpacing="xs">
           {data?.data?.map((item: any) => (
-            <VideoCard video={item.vod} playback={data?.playback} showChannel={true} />
+            <VideoCard key={item.vod.id} video={item.vod} playback={data?.playback} showChannel={true} />
           ))}
         </SimpleGrid>
       )}
