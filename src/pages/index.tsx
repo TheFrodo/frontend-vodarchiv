@@ -23,7 +23,7 @@ export default function Home() {
       {user.isLoggedIn && (
         <div>
           <Center>
-            <div className={classes.title}>Continue Watching</div>
+            <div className={classes.title}>Weiterschauen</div>
           </Center>
           <Container size="7xl" >
             <LandingContinueWatching />
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       )}
       <Center>
-        <div className={classes.title}>Recently Archived</div>
+        <div className={classes.title}>Zuletzt Archiviert</div>
       </Center>
       <Container size="7xl" >
         <LandingRecentlyArchived />

@@ -57,13 +57,13 @@ const PlaylistPage = (props: any) => {
     setDeletePlaylistModalOpened(true);
   };
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
     <div>
       <Head>
-        <title>{data.name} - Ganymede Playlist</title>
+        <title>{data.name} - Vodarchiv Playlist</title>
       </Head>
       <PlaylistHeader
         playlist={data}

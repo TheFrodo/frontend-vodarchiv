@@ -85,7 +85,7 @@ const ChannelPage = (props: any) => {
     setPage(1);
   };
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>fehler beim Laden</div>;
 
   return (
     <div>

@@ -101,8 +101,8 @@ const ArchivePage = () => {
             setTwitchVodInfo(null);
             setArchiveInput("");
             showNotification({
-              title: "VOD Archived",
-              message: "VOD has been added to the archive queue",
+              title: "VOD Archiviert",
+              message: "VOD wurde zur Warteschlange hinzugefügt",
             });
           })
           .catch((err) => {
@@ -129,8 +129,8 @@ const ArchivePage = () => {
             setTwitchVodInfo(null);
             setArchiveInput("");
             showNotification({
-              title: "Livestream Archived",
-              message: "Livestream has been added to the archive queue",
+              title: "Livestream Archiviert",
+              message: "Livestream wurde zur Warteschlange hinzugefügt",
             });
           })
           .catch((err) => {
@@ -211,12 +211,12 @@ const ArchivePage = () => {
               >
                 <Center>
                   <div>
-                    <Title>Archive</Title>
+                    <Title>Archiv</Title>
                   </div>
                 </Center>
                 <Center mb={10}>
                   <Text>
-                    Enter a video ID or select a channel to archive a livestream
+                    Gebe eine Video-ID ein oder wähle einen Kanal aus, um einen Livestream zu archivieren
                   </Text>
                 </Center>
                 <TextInput

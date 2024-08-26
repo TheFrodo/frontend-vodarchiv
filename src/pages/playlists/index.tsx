@@ -38,7 +38,7 @@ const PlaylistsPage = () => {
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Edit Playlist"
+        title="Editiere die Playlist"
       >
         <CreatePlaylistModal handleClose={closeModalCallback} />
       </Modal>

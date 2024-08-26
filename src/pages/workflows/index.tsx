@@ -12,10 +12,10 @@ const WorkflowsPage = (props: Props) => {
         <Tabs defaultValue="active">
           <Tabs.List>
             <Tabs.Tab value="active" >
-              Active
+              Aktiv
             </Tabs.Tab>
             <Tabs.Tab value="closed" >
-              Closed
+              Geschlossen
             </Tabs.Tab>
           </Tabs.List>
 
