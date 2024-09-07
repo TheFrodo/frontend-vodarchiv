@@ -30,7 +30,7 @@ const SearchPage = (props: SearchPageProps) => {
   const [limit, setLimit] = useState(24);
   const handlers = useRef<NumberInputHandlers>();
 
-  useDocumentTitle("VODArchiv - Search");
+  useDocumentTitle("VODArchiv - Suche");
 
   useEffect(() => {
     if (props.q && props.q.length > 0) {
