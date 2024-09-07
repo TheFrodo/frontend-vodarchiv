@@ -48,7 +48,7 @@ const VodPage = (props: any) => {
 
   const isMobile = useMediaQuery(`(max-width: 1000px)`);
 
-  useDocumentTitle(`Ganymede - VOD ${props.vodId}`);
+  useDocumentTitle(`VODArchiv - VOD ${props.vodId}`);
 
   const { data } = useQuery({
     queryKey: ["vod", props.vodId],
@@ -89,7 +89,7 @@ const VodPage = (props: any) => {
   return (
     <div>
       <Head>
-        <title>{data.title} - Ganymede</title>
+        <title>{data.title} - VODArchiv</title>
       </Head>
       {checkLoginRequired() && <VodLoginRequired {...data} />}
       {!checkLoginRequired() && (

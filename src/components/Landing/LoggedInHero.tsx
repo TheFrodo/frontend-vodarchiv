@@ -6,7 +6,7 @@ export function LandingLoggedInHero() {
   return (
     <div className={classes.root}>
       <Center>
-        <Title className={classes.title}>Ganymede</Title>
+        <Title className={classes.title}>VODArchiv</Title>
       </Center>
     </div>
   );

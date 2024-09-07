@@ -356,7 +356,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "Ganymede",
+        display_name: "VODChat",
       },
       message: {
         body: message,
