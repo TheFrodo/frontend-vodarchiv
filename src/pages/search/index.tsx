@@ -17,7 +17,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ChannelNoVideosFound from "../../components/Channel/NoVideosFound";
 import GanymedeLoader from "../../components/Utils/GanymedeLoader";
 import { useApi } from "../../hooks/useApi";
-import VideoCard from "../../components/Vod/Card";
+import VideoCard from "../../components/Video/Core/VideoCard";
 
 interface SearchPageProps {
   q: string;
@@ -30,7 +30,7 @@ const SearchPage = (props: SearchPageProps) => {
   const [limit, setLimit] = useState(24);
   const handlers = useRef<NumberInputHandlers>();
 
-  useDocumentTitle("VodArchiv - Suche");
+  useDocumentTitle("VODArchiv - Suche");
 
   useEffect(() => {
     if (props.q && props.q.length > 0) {

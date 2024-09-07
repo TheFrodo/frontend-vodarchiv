@@ -31,7 +31,7 @@ const ProfilePage = () => {
   const [showMoreUIDetails, setShowMoreUIDetails] = useState(false);
 
 
-  useDocumentTitle("Profile - VodArchiv");
+  useDocumentTitle("Profile - VODArchiv");
 
   useEffect(() => {
     setUseNewChatPlayer(user.settings.useNewChatPlayer);
@@ -51,8 +51,8 @@ const ProfilePage = () => {
     );
     showNotification({
       autoClose: 2000,
-      title: "Einstellungen",
-      message: "Die Einstellungen wurden erfolgreich aktualisiert.",
+      title: "Settings",
+      message: "Settings updated successfully",
       styles: (theme) => ({
         root: {
           backgroundColor: theme.colors.green[6],
@@ -91,8 +91,8 @@ const ProfilePage = () => {
     console.log(oldPassword, password, passwordConfirm);
     if (password !== passwordConfirm) {
       showNotification({
-        title: "Passwort Ändern",
-        message: "Die eingegebenen Passwörter stimmen nicht überein.",
+        title: "Change Password",
+        message: "Passwords do not match",
         color: "red",
       });
       return;
@@ -113,8 +113,8 @@ const ProfilePage = () => {
         false
       );
       showNotification({
-        title: "Passwort Ändern",
-        message: "Das Passwort wurde erfolgreich geändert.",
+        title: "Change Password",
+        message: "Password changed successfully",
       });
       setOldPassword("");
       setPassword("");
@@ -154,8 +154,8 @@ const ProfilePage = () => {
                 onChange={(event) =>
                   setUseNewChatPlayer(event.currentTarget.checked)
                 }
-                label="Benutze den neuen Chat Player"
-                description="Deaktiviere die Verwendung der standardmäßig gerenderten Video-Chat-Wiedergabe."
+                label="Use new chat player"
+                description="Disable to use the standard rendered video chat playback."
                 mb={10}
               />
               <Switch
@@ -163,8 +163,8 @@ const ProfilePage = () => {
                 onChange={(event) =>
                   setShowMoreUIDetails(event.currentTarget.checked)
                 }
-                label="Mehr UI Informationen"
-                description="Zeige mehr Informationen an."
+                label="More UI details"
+                description="Show more information in the UI."
               />
               <Button
                 onClick={() => updateUserSettings()}
@@ -207,7 +207,7 @@ const ProfilePage = () => {
         <Modal
           opened={opened}
           onClose={() => setOpened(false)}
-          title="Passwort"
+          title="Change Password"
         >
           <div>
             <form onSubmit={submitPasswordChange}>
@@ -215,7 +215,7 @@ const ProfilePage = () => {
                 value={oldPassword}
                 onChange={setOldPassword}
                 placeholder="Password"
-                label="altes Password"
+                label="Old Password"
                 autoComplete="current-password"
                 required
               />
@@ -223,8 +223,8 @@ const ProfilePage = () => {
                 value={password}
                 onChange={setPassword}
                 placeholder="Password"
-                label="Neues Password"
-                description="Mindestens 8 Zeichen."
+                label="New Password"
+                description="Minimum of 8 characters."
                 autoComplete="new-password"
                 required
               />
@@ -232,7 +232,7 @@ const ProfilePage = () => {
                 value={passwordConfirm}
                 onChange={setPasswordConfirm}
                 placeholder="Password"
-                label="Nochmal das Neue Passwort"
+                label="Repeat New Password"
                 autoComplete="new-password"
                 required
               />

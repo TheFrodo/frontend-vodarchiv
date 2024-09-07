@@ -5,7 +5,7 @@ export const MissingThumbnailImage = () => {
     <>
     <Image 
       src="/images/ganymede-thumbnail.png"
-      alt="vodarchiv Thumbnail"
+      alt="Ganymede Thumbnail"
       fit="contain"
     />
     </>

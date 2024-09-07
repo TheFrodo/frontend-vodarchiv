@@ -8,7 +8,7 @@ import DeletePlaylistModal from "../../components/Playlist/DeletePlaylistModal";
 import EditPlaylistModal from "../../components/Playlist/EditPlaylistModal";
 import PlaylistHeader from "../../components/Playlist/Header";
 import GanymedeLoader from "../../components/Utils/GanymedeLoader";
-import VideoCard from "../../components/Vod/Card";
+import VideoCard from "../../components/Video/Core/VideoCard";
 import { useApi } from "../../hooks/useApi";
 
 const PlaylistPage = (props: any) => {
@@ -16,7 +16,7 @@ const PlaylistPage = (props: any) => {
   const [deletePlaylistModalOpened, setDeletePlaylistModalOpened] =
     useState(false);
 
-  useDocumentTitle(`VodArchiv - Playlist ${props.playlistId}`);
+  useDocumentTitle(`VODArchiv - Playlist ${props.playlistId}`);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["playlist", props.playlistId],
@@ -57,13 +57,13 @@ const PlaylistPage = (props: any) => {
     setDeletePlaylistModalOpened(true);
   };
 
-  if (error) return <div>fehler beim Laden</div>;
+  if (error) return <div>failed to load</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
     <div>
       <Head>
-        <title>{data.name} - Vodarchiv Playlist</title>
+        <title>{data.name} - VODArchiv Playlist</title>
       </Head>
       <PlaylistHeader
         playlist={data}

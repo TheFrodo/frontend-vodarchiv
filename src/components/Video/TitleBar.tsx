@@ -70,7 +70,7 @@ export const VodTitleBar = ({ vod }: any) => {
               >
                 <div className={classes.titleBarBadge}>
                   <Text mr={5}>
-                    {dayjs(vod.streamed_at).format("DD.MM.YYYY")}
+                    {dayjs(vod.streamed_at).format("YYYY/MM/DD")}
                   </Text>
                   <IconCalendarEvent size={20} />
                 </div>

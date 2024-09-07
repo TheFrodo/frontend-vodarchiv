@@ -21,7 +21,7 @@ import { ChannelHeader } from "../../components/Channel/Header";
 import ChannelNoVideosFound from "../../components/Channel/NoVideosFound";
 import GanymedeLoader from "../../components/Utils/GanymedeLoader";
 import { useApi } from "../../hooks/useApi";
-import VideoCard from "../../components/Vod/Card";
+import VideoCard from "../../components/Video/Core/VideoCard";
 import { Video } from "../../ganymede-defs";
 import classes from "./channelName.module.css"
 
@@ -85,7 +85,7 @@ const ChannelPage = (props: any) => {
     setPage(1);
   };
 
-  if (error) return <div>fehler beim Laden</div>;
+  if (error) return <div>failed to load</div>;
 
   return (
     <div>

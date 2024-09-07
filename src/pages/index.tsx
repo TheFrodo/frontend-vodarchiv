@@ -13,7 +13,7 @@ import { LandingLoggedInHero } from "../components/Landing/LoggedInHero";
 
 export default function Home() {
 
-  useDocumentTitle("VodArchiv");
+  useDocumentTitle("VODArchiv");
 
   const user = useUserStore((state) => state);
 

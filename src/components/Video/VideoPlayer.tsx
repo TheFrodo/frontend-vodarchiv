@@ -16,6 +16,7 @@ import { useSearchParams } from 'next/navigation'
 import { showNotification } from "@mantine/notifications";
 import classes from "./VideoPlayer.module.css"
 import eventBus from "../../util/eventBus";
+import { PlaybackDataResponse } from "../../ganymede-defs";
 
 const NewVideoPlayer = ({ vod }: any) => {
   const { publicRuntimeConfig } = getConfig();
@@ -30,6 +31,7 @@ const NewVideoPlayer = ({ vod }: any) => {
   const [videoTitle, setVideoTitle] = useState<string>("");
   const startedPlayback = useRef(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [playerVolume, setPlayerVolume] = useState(1);
 
   const searchParams = useSearchParams()
 
@@ -42,7 +44,6 @@ const NewVideoPlayer = ({ vod }: any) => {
   // Fetch playback data
   const { data } = useQuery({
     refetchOnWindowFocus: false,
-    refetchOnmount: false,
     refetchOnReconnect: false,
     retry: false,
     staleTime: Infinity,
@@ -55,44 +56,38 @@ const NewVideoPlayer = ({ vod }: any) => {
           withCredentials: true,
         },
         true
-      ).then((res) => {
-        if (res != undefined) {
-          return res.data;
-        } else {
-          return {
-            error: "No playback data",
-          };
-        }
-      }),
+      ).then((res) => res?.data as PlaybackDataResponse),
   });
 
   // start playback
-  useEffect(() => {
-    if (!data) return;
-    if (startedPlayback.current) return;
-    try {
-      useApi(
-        {
-          method: "POST",
-          url: `/api/v1/playback/start?video_id=${vod.id}`,
-          withCredentials: false,
-        },
-        false
-      ).then(() => {
-        startedPlayback.current = true;
-      })
-    } catch (error) {
-      console.error(error);
-      showNotification({
-        title: "Error",
-        message: "Failed to start playback",
-        color: "red",
-      });
-    }
-  }, [data])
+  if (user.isLoggedIn) {
+    useEffect(() => {
+      if (!data) return;
+      if (startedPlayback.current) return;
+      try {
+        useApi(
+          {
+            method: "POST",
+            url: `/api/v1/playback/start?video_id=${vod.id}`,
+            withCredentials: false,
+          },
+          false
+        ).then(() => {
+          startedPlayback.current = true;
+        })
+      } catch (error) {
+        console.error(error);
+        showNotification({
+          title: "Error",
+          message: "Failed to start playback",
+          color: "red",
+        });
+      }
+    }, [data])
+  }
 
   useEffect(() => {
-    if (!data) return;
+    // if (!data) return;
 
     if (!player) return;
 
@@ -123,18 +118,20 @@ const NewVideoPlayer = ({ vod }: any) => {
 
     // Volume
     const localVolume = localStorage.getItem("ganymede-volume");
+    console.debug(`local volume: ${localVolume}`);
     if (localVolume) {
-      console.debug(`setting volume to ${parseFloat(localVolume)}`);
-      player.current!.volume = parseFloat(localVolume);
+      setPlayerVolume(parseFloat(localVolume));
     }
 
     player.current?.subscribe(({ volume }) => {
-      localStorage.setItem("ganymede-volume", volume.toString());
+      if (volume != 1) {
+        localStorage.setItem("ganymede-volume", volume.toString());
+      }
     });
 
     // Playback data
-    if (data.time) {
-      player.current!.currentTime = data.time;
+    if (data && data.data?.time) {
+      player.current!.currentTime = data.data?.time;
     }
 
     // Check if time is set in the url
@@ -223,6 +220,7 @@ const NewVideoPlayer = ({ vod }: any) => {
         playsInline={true}
         load="eager"
         posterLoad="eager"
+        volume={playerVolume}
       >
 
         <MediaProvider >

@@ -15,7 +15,7 @@ export function LandingHero() {
 
         <Container size={640}>
           <Text size="lg" className={classes.description}>
-            Deine Plattform, wenn es um Twitch VOD's geht!
+          Deine Plattform, wenn es um Twitch VOD's geht!
           </Text>
         </Container>
 

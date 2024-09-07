@@ -55,8 +55,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Channel Updated",
-              message: "Channel has been updated successfully",
+              title: "Kanal aktualisiert",
+              message: "Der Kanal wurde erfolgreich aktualisiert.",
             });
             handleClose();
           })
@@ -86,8 +86,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Channel Created",
-              message: "Channel has been created successfully",
+              title: "Kanal erstellt",
+              message: "Der Kanal wurde erfolgreich erstellt.",
             });
             handleClose();
           })
@@ -113,8 +113,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
         .then(() => {
           setUpdateImageLoading(false);
           showNotification({
-            title: "Channel Updated",
-            message: "Channel image has been updated successfully",
+            title: "Kanal Aktualisiert",
+            message: "Das Kanalbild wurde Aktualisiert.",
           });
           handleClose();
         })
@@ -163,7 +163,7 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
         <TextInput
           value={imagePath}
           onChange={(e) => setImagePath(e.currentTarget.value)}
-          placeholder="Image Path"
+          placeholder="/data/videos/channel/channel.png"
           label="Image Path"
           required
           mb="xs"

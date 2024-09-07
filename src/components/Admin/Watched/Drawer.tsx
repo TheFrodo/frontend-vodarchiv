@@ -50,6 +50,7 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
   );
   const [selectedTwitchCategories, setSelectedTwitchCategories] = useState([]);
   const [liveTitleRegexes, setLiveTitleRegexes] = useState<LiveTitleRegex[]>([]);
+  const [applyCategoriesToLive, setApplyCategoriesToLive] = useState(false);
 
   const qualityOptions = [
     { label: "Best", value: "best" },
@@ -57,6 +58,7 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
     { label: "480p", value: "480p30" },
     { label: "360p", value: "360p30" },
     { label: "160p", value: "160p30" },
+    { label: "audio", value: "audio" }
   ];
 
   useEffect(() => {
@@ -75,6 +77,7 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
       setDownloadSubOnly(watched?.download_sub_only);
       setMaxVideoAge(watched?.video_age);
       setLiveTitleRegexes(watched?.edges.title_regex)
+      setApplyCategoriesToLive(watched?.apply_categories_to_live);
 
       if (watched?.edges?.categories) {
         const tmpArr = [];
@@ -109,7 +112,8 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
               download_sub_only: downloadSubOnly,
               categories: selectedTwitchCategories,
               max_age: maxVideoAge,
-              regex: liveTitleRegexes
+              regex: liveTitleRegexes,
+              apply_categories_to_live: applyCategoriesToLive
             },
             withCredentials: true,
           },
@@ -150,7 +154,8 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
                   download_sub_only: downloadSubOnly,
                   categories: selectedTwitchCategories,
                   max_age: maxVideoAge,
-                  regex: liveTitleRegexes
+                  regex: liveTitleRegexes,
+                  apply_categories_to_live: applyCategoriesToLive
                 },
                 withCredentials: true,
               },
@@ -174,7 +179,8 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
                   download_sub_only: downloadSubOnly,
                   categories: selectedTwitchCategories,
                   max_age: maxVideoAge,
-                  regex: liveTitleRegexes
+                  regex: liveTitleRegexes,
+                  apply_categories_to_live: applyCategoriesToLive
                 },
                 withCredentials: true,
               },
@@ -238,7 +244,7 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
       return useApi(
         {
           method: "GET",
-          url: `/api/v1/twitch/categories`,
+          url: `/api/v1/category`,
           withCredentials: true,
         },
         false
@@ -473,8 +479,20 @@ const AdminWatchedDrawer = ({ handleClose, watched, mode }) => {
           <Title order={5}>Categories</Title>
         </Group>
         <div>
-          <Text size="sm">Archive videos from these categories. Leave blank to archive all categories. Does not apply to live streams.</Text>
+          <Text size="sm">Archive videos from select categories. Leave blank to archive all categories.</Text>
         </div>
+
+
+        <Box mb={10} mt={10}>
+          <Text size="sm" >Apply categories to livestream check. Stream will only be archived if the category is matched.</Text>
+          <Switch
+            mt={5}
+            label="Apply to livestreams"
+            checked={applyCategoriesToLive}
+            onChange={(e) => setApplyCategoriesToLive(e.currentTarget.checked)}
+          />
+        </Box>
+
 
         <div>
           {formattedTwitchCategories.length == 0 ? (

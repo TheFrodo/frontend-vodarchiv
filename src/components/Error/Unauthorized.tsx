@@ -14,18 +14,17 @@ export function Unauthorized() {
   return (
     <Container className={classes.root}>
       <div className={classes.label}>401</div>
-      <Title className={classes.title}>Unauthorized.</Title>
+      <Title className={classes.title}>Keine Berechtigung.</Title>
       <Text
         size="lg"
         className={classes.description}
       >
-        Entweder bist du nicht eingeloggt oder du hast keine Berechtigung diese
-        Seite aufzurufen.
+        Entweder bist du nicht eingeloggt oder du hast keine Berechtigung, diese Seite anzusehen
       </Text>
       <Group>
         <Link href="/">
           <Button variant="subtle" size="md">
-            Bring mich zurück auf die Startseite.
+            Bring mich zurück auf die Startseite
           </Button>
         </Link>
       </Group>

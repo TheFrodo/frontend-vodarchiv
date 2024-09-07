@@ -4,7 +4,7 @@ import { RegisterForm } from "../components/Authentication/Register";
 import { useDocumentTitle } from "@mantine/hooks";
 
 const RegisterPage = () => {
-  useDocumentTitle("VodArchiv - Register");
+  useDocumentTitle("VODArchiv - Register");
   return (
     <div>
       <Container mt={50} size="sm">

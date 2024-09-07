@@ -1,15 +1,15 @@
 import { Box, Grid, em } from "@mantine/core";
 import { useDocumentTitle, useFullscreen, useInterval, useMediaQuery } from "@mantine/hooks";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { VodChatPlayer } from "../../components/Vod/ChatPlayer";
-import ExperimentalChatPlayer from "../../components/Vod/ExperimentalChatPlayer";
-import { VodTitleBar } from "../../components/Vod/TitleBar";
+import { VodChatPlayer } from "../../components/Video/ChatPlayer";
+import ExperimentalChatPlayer from "../../components/Video/ExperimentalChatPlayer";
+import { VodTitleBar } from "../../components/Video/TitleBar";
 import { useApi } from "../../hooks/useApi";
 import useUserStore from "../../store/user";
 import Error from "next/error";
-import NewVideoPlayer from "../../components/Vod/VideoPlayer";
+import NewVideoPlayer from "../../components/Video/VideoPlayer";
 import getConfig from "next/config";
-import VodLoginRequired from "../../components/Vod/LoginRequred";
+import VodLoginRequired from "../../components/Video/LoginRequred";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import eventBus from "../../util/eventBus";
@@ -48,7 +48,7 @@ const VodPage = (props: any) => {
 
   const isMobile = useMediaQuery(`(max-width: 1000px)`);
 
-  useDocumentTitle(`VodArchiv - VOD ${props.vodId}`);
+  useDocumentTitle(`VODArchiv - VOD ${props.vodId}`);
 
   const { data } = useQuery({
     queryKey: ["vod", props.vodId],
@@ -89,7 +89,7 @@ const VodPage = (props: any) => {
   return (
     <div>
       <Head>
-        <title>{data.title} - Vodarchiv</title>
+        <title>{data.title} - VODARchiv</title>
       </Head>
       {checkLoginRequired() && <VodLoginRequired {...data} />}
       {!checkLoginRequired() && (

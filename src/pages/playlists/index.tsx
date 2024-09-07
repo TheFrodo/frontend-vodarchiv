@@ -9,7 +9,7 @@ import classes from "./playlists.module.css"
 const PlaylistsPage = () => {
   const [opened, setOpened] = useState(false);
 
-  useDocumentTitle("Playlists - VodArchiv");
+  useDocumentTitle("Playlists - Ganymede");
 
   const closeModalCallback = () => {
     setOpened(false);
@@ -38,7 +38,7 @@ const PlaylistsPage = () => {
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Editiere die Playlist"
+        title="Edit Playlist"
       >
         <CreatePlaylistModal handleClose={closeModalCallback} />
       </Modal>

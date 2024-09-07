@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useApi } from "../../hooks/useApi";
 import GanymedeLoader from "../Utils/GanymedeLoader";
-import VideoCard from "../Vod/Card";
+import VideoCard from "../Video/Core/VideoCard";
 import { useMediaQuery } from "@mantine/hooks";
 import { Carousel } from "@mantine/carousel";
 
@@ -26,7 +26,7 @@ const LandingContinueWatching = () => {
       }),
   });
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (

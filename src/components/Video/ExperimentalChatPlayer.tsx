@@ -115,9 +115,9 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
         setReady(true);
         internalReady = true;
 
-        createCustomComment("VODChat ist bereit!");
+        createCustomComment("Chat player ready.");
         createCustomComment(
-          `Es wurden ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, und ${emoteMap.size.toLocaleString()} emotes abgerufen`
+          `Fetched ${generalBadgeMap.size.toLocaleString()} badges, ${subscriptionBadgeMap.size.toLocaleString()} subscription badges, and ${emoteMap.size.toLocaleString()} emotes.`
         );
       });
     });
@@ -288,7 +288,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
     const clearChat = () => {
       chat.current = [];
       recChat = [];
-      createCustomComment("Es wurde ein Zeitsprung erkannt. Der Chat wurde geleert.");
+      createCustomComment("Time skip detected. Chat cleared.");
     };
 
     const videoPlayerInterval = setInterval(() => {
@@ -381,7 +381,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
             <Center>
               <Loader color="violet" size="xl" />
             </Center>
-            <Text mt={5}>Loading Chat</Text>
+            <Text mt={5}>Chat wird geladen</Text>
           </div>
         </Center>
       )}

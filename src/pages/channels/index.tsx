@@ -10,7 +10,7 @@ import { useDocumentTitle } from "@mantine/hooks";
 const ChannelsPage = () => {
   const queryClient = useQueryClient();
 
-  useDocumentTitle("Channels - VodArchiv");
+  useDocumentTitle("Kanäle - VODArchiv");
 
   // React Query
   const { isLoading, error, data } = useQuery({
@@ -21,7 +21,7 @@ const ChannelsPage = () => {
       ),
   });
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>Fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
