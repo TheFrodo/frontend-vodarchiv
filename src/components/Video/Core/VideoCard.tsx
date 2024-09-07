@@ -166,13 +166,13 @@ const VideoCard = ({ video, showProgress = true, showMenu = true, showChannel = 
         align="center" pt={2}>
 
         <Tooltip
-          label={`Übertragen am ${new Date(
+          label={`Streamed on ${new Date(
             video.streamed_at
           ).toLocaleString()}`}
         >
 
           <Text size="sm">
-            {dayjs(video.streamed_at).format("DD.MM.YYYY)}{" "}
+            {dayjs(video.streamed_at).format("YYYY/MM/DD")}{" "}
             {user.settings.moreUIDetails && (
               <span>{dayjs(video.streamed_at).format("LT")}</span>
             )}

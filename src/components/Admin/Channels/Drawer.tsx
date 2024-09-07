@@ -55,8 +55,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Kanal aktualisiert",
-              message: "Der Kanal wurde erfolgreich aktualisiert.",
+              title: "Channel Updated",
+              message: "Channel has been updated successfully",
             });
             handleClose();
           })
@@ -86,8 +86,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
             queryClient.invalidateQueries(["admin-channels"]);
             setLoading(false);
             showNotification({
-              title: "Kanal erstellt",
-              message: "Der Kanal wurde erfolgreich erstellt.",
+              title: "Channel Created",
+              message: "Channel has been created successfully",
             });
             handleClose();
           })
@@ -113,8 +113,8 @@ const AdminChannelDrawer = ({ handleClose, channel, mode }) => {
         .then(() => {
           setUpdateImageLoading(false);
           showNotification({
-            title: "Kanal Aktualisiert",
-            message: "Das Kanalbild wurde Aktualisiert.",
+            title: "Channel Updated",
+            message: "Channel image has been updated successfully",
           });
           handleClose();
         })

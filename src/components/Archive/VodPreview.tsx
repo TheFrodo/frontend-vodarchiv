@@ -15,11 +15,11 @@ export const VodPreview = ({ video }: { video: PlatformVideoInfo }) => {
         </Title>
         <div>
           <div>
-            <span>Veröffentlichungsdatum: </span>
+            <span>Created At: </span>
             {video.created_at}
           </div>
           <div>
-            <span>Dauer: </span>
+            <span>Duration: </span>
             {video.duration}
           </div>
           <div>
@@ -28,7 +28,7 @@ export const VodPreview = ({ video }: { video: PlatformVideoInfo }) => {
           </div>
           {video.chapters && (
             <div>
-              <span>Kapitel: </span>
+              <span>Chapters: </span>
               {video.chapters.length}
             </div>
           )}

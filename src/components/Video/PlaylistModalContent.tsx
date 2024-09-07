@@ -81,7 +81,7 @@ export const VodPlaylistModalContent = ({ vod }: any) => {
     },
   });
 
-  if (error) return <div>Fehler beim Laden</div>;
+  if (error) return <div>failed to load</div>;
   if (isLoading)
     return (
       <div>

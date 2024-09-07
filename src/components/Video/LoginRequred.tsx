@@ -28,7 +28,7 @@ const VodLoginRequired = (vod: Video) => {
           <IconLock size={64} className={classes.icon} />
         </Center>
         <div className={classes.text}>
-          Du musst eingeloggt sein, um dieses Video zu sehen
+          You must be logged in to view this video
         </div>
       </div>
     </div>

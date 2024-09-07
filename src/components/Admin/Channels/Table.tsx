@@ -122,7 +122,7 @@ const AdminChannelsTable = () => {
             title: "Created At",
             sortable: true,
             render: ({ created_at }) => (
-              <div>{dayjs(created_at).format("DD.MM.YYYY")}</div>
+              <div>{dayjs(created_at).format("YYYY/MM/DD")}</div>
             ),
           },
           {

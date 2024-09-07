@@ -13,7 +13,7 @@ import { LandingLoggedInHero } from "../components/Landing/LoggedInHero";
 
 export default function Home() {
 
-  useDocumentTitle("VODArchiv");
+  useDocumentTitle("Ganymede");
 
   const user = useUserStore((state) => state);
 
@@ -23,7 +23,7 @@ export default function Home() {
       {user.isLoggedIn && (
         <div>
           <Center>
-            <div className={classes.title}>Weiterschauen</div>
+            <div className={classes.title}>Continue Watching</div>
           </Center>
           <Container size="7xl" >
             <LandingContinueWatching />
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       )}
       <Center>
-        <div className={classes.title}>Zuletzt Archiviert</div>
+        <div className={classes.title}>Recently Archived</div>
       </Center>
       <Container size="7xl" >
         <LandingRecentlyArchived />

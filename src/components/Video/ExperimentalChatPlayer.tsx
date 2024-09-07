@@ -356,7 +356,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
       _id: randomId(),
       content_offset_seconds: 0,
       commenter: {
-        display_name: "VODChat",
+        display_name: "Ganymede",
       },
       message: {
         body: message,
@@ -381,7 +381,7 @@ const ExperimentalChatPlayer = ({ vod }: any) => {
             <Center>
               <Loader color="violet" size="xl" />
             </Center>
-            <Text mt={5}>Chat wird geladen</Text>
+            <Text mt={5}>Loading Chat</Text>
           </div>
         </Center>
       )}

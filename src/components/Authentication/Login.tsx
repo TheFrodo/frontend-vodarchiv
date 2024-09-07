@@ -47,7 +47,7 @@ export function LoginForm(props: PaperProps) {
   return (
     <Paper radius="md" p="xl" withBorder {...props}>
       <Text size="lg" fw={500}>
-        Willkommen bei Vodarchiv, bitte melde dich an
+        Welcome to Ganymede, login below
       </Text>
 
       {publicRuntimeConfig.SHOW_SSO_LOGIN_BUTTON != "false" && (
@@ -95,7 +95,7 @@ export function LoginForm(props: PaperProps) {
         <Group justify="space-between" mt="xl">
           <Link href="/register">
             <Anchor component="button" type="button" c="dimmed" size="xs">
-              Du hast noch keinen Account? Dann Registriere dich
+              Don't have an account? Register
             </Anchor>
           </Link>
           <Button type="submit" radius="xl" loading={loading}>
