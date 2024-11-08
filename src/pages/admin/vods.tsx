@@ -15,7 +15,7 @@ import classes from "./vods.module.css"
 const AdminVodsPage = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
 
-  useDocumentTitle("Ganymede - Admin - VODs");
+  useDocumentTitle("VODArchiv - Admin - VODs");
 
   const closeDrawerCallback = () => {
     setDrawerOpened(false);

@@ -16,7 +16,7 @@ import classes from "./queue.module.css"
 const AdminQueuePage = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
 
-  useDocumentTitle("Ganymede - Admin - Queue");
+  useDocumentTitle("VodArchiv - Admin - Warteschlange");
 
   const closeDrawerCallback = () => {
     setDrawerOpened(false);
@@ -28,7 +28,7 @@ const AdminQueuePage = () => {
         <Container size="2xl">
           <div className={classes.header}>
             <div>
-              <Title order={2}>Queue</Title>
+              <Title order={2}>Warteschlange</Title>
             </div>
           </div>
           <AdminQueueTable />

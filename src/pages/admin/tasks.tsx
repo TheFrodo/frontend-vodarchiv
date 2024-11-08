@@ -27,7 +27,7 @@ const AdminTasksPage = () => {
   const [workflowLoading, setWorkflowLoading] = useState(false);
 
 
-  useDocumentTitle("Ganymede - Admin - Tasks");
+  useDocumentTitle("VodArchiv - Admin - Tasks");
 
   const startTask = useMutation({
     mutationKey: ["task-task"],

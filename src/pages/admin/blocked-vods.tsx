@@ -36,7 +36,7 @@ const BlockedVideos = (props: Props) => {
   const [query, setQuery] = useState("");
   const [debouncedQuery] = useDebouncedValue(query, 200);
 
-  useDocumentTitle("Ganymede - Admin - Blocked VODs");
+  useDocumentTitle("VodArchiv - Admin - Blocked VODs");
 
   const [activeBlockedVideo, setActiveBlockedVideo] = useState(null);
   const [createModal, { open: openCreateModal, close: closeCreateModal }] = useDisclosure(false);
@@ -121,7 +121,7 @@ const BlockedVideos = (props: Props) => {
     },
   });
 
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>fehler beim Laden</div>;
   if (isLoading) return <GanymedeLoader />;
 
   return (
@@ -167,11 +167,11 @@ const BlockedVideos = (props: Props) => {
                 { accessor: "id", title: "ID" },
                 {
                   accessor: "created_at",
-                  title: "Created At",
+                  title: "Erstelldatum",
                   sortable: true,
                   width: 180,
                   render: ({ created_at }) => (
-                    <div>{dayjs(created_at).format("YYYY/MM/DD")}</div>
+                    <div>{dayjs(created_at).format("DD.MM.YYYY")}</div>
                   ),
                 },
                 {

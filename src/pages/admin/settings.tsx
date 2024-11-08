@@ -72,7 +72,7 @@ const AdminSettingsPage = () => {
     },
   });
 
-  useDocumentTitle("Ganymede - Admin - Settings");
+  useDocumentTitle("VodArchiv - Admin - Einstellungen");
 
   const queryClient = useQueryClient();
 
@@ -171,9 +171,9 @@ const AdminSettingsPage = () => {
           <Card withBorder p="xl" radius="md" className={classes.settingsSections} >
             <div className={classes.header}>
               <div>
-                <Title order={2}>Settings</Title>
+                <Title order={2}>Einstellungen</Title>
                 <Text>
-                  Visit the{" "}
+                  Besuche das{" "}
                   <a
                     className={classes.link}
                     href="https://github.com/Zibbp/ganymede/wiki/Application-Settings"
@@ -181,7 +181,7 @@ const AdminSettingsPage = () => {
                   >
                     wiki
                   </a>{" "}
-                  for documentation regarding each setting.
+                  für eine Dokumentation der jeweiligen Einstellungen.
                 </Text>
               </div>
             </div>
@@ -209,7 +209,7 @@ const AdminSettingsPage = () => {
                   variant="outline"
                   color="orange"
                 >
-                  Notification Settings
+                  Benachrichtigungseinstellungen
                 </Button>
 
 

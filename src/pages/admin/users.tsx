@@ -15,7 +15,7 @@ import classes from "./users.module.css"
 const AdminUsersPage = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
 
-  useDocumentTitle("Ganymede - Admin - Users");
+  useDocumentTitle("VODArchiv - Admin - Users");
 
   const closeDrawerCallback = () => {
     setDrawerOpened(false);

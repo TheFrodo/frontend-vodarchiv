@@ -19,7 +19,7 @@ const AdminWatchedPage = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const [twitchDrawerOpened, setTwitchDrawerOpened] = useState(false);
 
-  useDocumentTitle("Ganymede - Admin - Watched Channels");
+  useDocumentTitle("VODArchiv - Admin - Watched Channels");
 
   const closeDrawerCallback = () => {
     setDrawerOpened(false);

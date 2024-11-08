@@ -22,7 +22,7 @@ import classes from "./info.module.css"
 const AdminInfoPage = () => {
   const { publicRuntimeConfig } = getConfig();
 
-  useDocumentTitle("Ganymede - Admin - Info");
+  useDocumentTitle("VodArchiv - Admin - Info");
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["admin-info"],

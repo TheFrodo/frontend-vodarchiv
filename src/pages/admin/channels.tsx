@@ -17,7 +17,7 @@ const AdminChannelsPage = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const [twitchDrawerOpened, setTwitchDrawerOpened] = useState(false);
 
-  useDocumentTitle("Ganymede - Admin - Channels");
+  useDocumentTitle("VodArchiv - Admin - Kanäle");
 
   const closeDrawerCallback = () => {
     setDrawerOpened(false);
@@ -32,7 +32,7 @@ const AdminChannelsPage = () => {
         <Container size="2xl">
           <div className={classes.header}>
             <div>
-              <Title order={2}>Channels</Title>
+              <Title order={2}>Kanäle</Title>
             </div>
             <div className={classes.right}>
               <Button
@@ -48,7 +48,7 @@ const AdminChannelsPage = () => {
                 variant="outline"
                 color="violet"
               >
-                Add Twitch Channel
+                Twitch Channel hinzufügen
               </Button>
             </div>
           </div>
@@ -67,7 +67,7 @@ const AdminChannelsPage = () => {
         <Drawer
           opened={twitchDrawerOpened}
           onClose={() => setTwitchDrawerOpened(false)}
-          title="Add Twitch Channel"
+          title="Füge einen Twitch Channel hinzu"
           padding="xl"
           size="xl"
           position="right"
