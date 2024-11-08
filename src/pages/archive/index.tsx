@@ -171,7 +171,7 @@ const ArchivePage = () => {
                 </Center>
                 <Center mb={10}>
                   <Text>
-                    Enter a video ID or select a channel to archive a livestream
+                      Gib eine Video-ID ein oder wähle einen Kanal aus, um einen Livestream zu archivieren.
                   </Text>
                 </Center>
                 <TextInput
